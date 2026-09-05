@@ -1,0 +1,586 @@
+\documentclass[12pt,letterpaper]{report}
+
+% ---------- PAQUETES ----------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[spanish,es-tabla,es-noshorthands]{babel}
+\usepackage{geometry}
+\geometry{left=3cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{natbib}
+\bibliographystyle{apalike}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=blue!50!black,
+    urlcolor=blue!50!black,
+    pdftitle={Modelo de anal\'itica predictiva espacio-temporal para patrullajes preventivos en Lima Metropolitana},
+    pdfauthor={Cesar Jesus Dose Preciado Calderon, DNI 60770855},
+}
+
+\onehalfspacing
+\setlength{\emergencystretch}{3em}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+% Caja de nota editorial (para guiar al estudiante en las partes que debe completar con datos propios)
+}
+
+\title{Modelo de anal\'itica predictiva espacio-temporal para patrullajes preventivos en Lima Metropolitana}
+\author{}
+\date{}
+
+\begin{document}
+
+% =========================================================
+% PORTADA
+% =========================================================
+\begin{titlepage}
+\centering
+\vspace*{1.5cm}
+
+{\large T\'ITULO DE LA INVESTIGACI\'ON\par}
+\vspace{0.8cm}
+{\LARGE\bfseries ``Modelo de anal\'itica predictiva espacio-temporal para patrullajes preventivos en Lima Metropolitana''\par}
+
+\vspace{2.5cm}
+{\large TRABAJO DE INVESTIGACI\'ON\par}
+
+\vspace{2.5cm}
+{\large PRESENTADO POR:\par}
+{\large C\'esar Jes\'us Dose Preciado Calder\'on\par}
+\vspace{0.4cm}
+{\large DNI N.\textdegree{} 60770855\par}
+
+\vfill
+{\large LIMA, PER\'U\par}
+{\large 2026\par}
+\end{titlepage}
+
+% =========================================================
+% DECLARACI\'ON JURADA DE ORIGINALIDAD
+% =========================================================
+\thispagestyle{empty}
+\begin{center}
+\textbf{DECLARACI\'ON JURADA DE ORIGINALIDAD}
+\end{center}
+\vspace{0.5cm}
+\noindent Yo, C\'esar Jes\'us Dose Preciado Calder\'on, identificado con DNI N.\textdegree{} 60770855, autor del presente trabajo de investigación, declaro bajo juramento que:
+
+\begin{enumerate}[label=\alph*)]
+    \item Soy el autor del documento acad\'emico titulado ``Modelo de analítica predictiva espacio-temporal sobre datos abiertos de criminalidad y siniestralidad vial, como apoyo a la planificaci\'on de patrullajes preventivos en Lima Metropolitana''.
+    \item El trabajo de investigaci\'on es original y no ha sido difundido en ning\'un medio acad\'emico; por lo tanto, sus resultados son veraces y no es copia de ning\'un otro.
+    \item El trabajo incluye citas a otros autores y referencias bibliogr\'aficas verificables, cumpliendo con las pautas acad\'emicas y las normas de citado internacional (APA).
+    \item El trabajo se ha elaborado con respeto absoluto a la propiedad intelectual de terceros.
+    \item Declaro conocer las consecuencias legales y/o administrativas que puedan derivarse de la falsedad total o parcial de la presente declaraci\'on.
+\end{enumerate}
+
+\vspace{1cm}
+\noindent Fecha: [dd/mm/aaaa]
+
+\vspace{1.5cm}
+\noindent Firma del autor
+
+\newpage
+
+% =========================================================
+% DEDICATORIA
+% =========================================================
+\thispagestyle{empty}
+\vspace*{3.5cm}
+\begin{center}
+\itshape
+
+A mis padres, por su apoyo incondicional y por cada sacrificio que hizo
+posible llegar hasta aquí; este logro es tan suyo como mío.
+
+\bigskip
+
+A Ariana, mi enamorada, que me acompañó durante estos tres años de
+estudios y que hoy sigue acompañándome en cada paso que doy.
+
+\bigskip
+
+A Sony, mi gato, que me hizo compañía durante los tres años completos de
+esta carrera y que ahora descansa en paz.
+
+\bigskip
+
+--- César Jesús Dose Preciado Calderón
+
+\end{center}
+\newpage
+
+% =========================================================
+% \'INDICE
+% =========================================================
+\tableofcontents
+\newpage
+\listoftables
+\listoffigures
+\newpage
+
+% =========================================================
+% RESUMEN
+% =========================================================
+\chapter*{Resumen}
+\addcontentsline{toc}{chapter}{Resumen}
+
+La inseguridad ciudadana y la siniestralidad vial constituyen dos de los problemas p\'ublicos m\'as apremiantes del Per\'u, y en particular de Lima Metropolitana, donde la percepci\'on de inseguridad supera el 90\% de la poblaci\'on y se registran miles de siniestros de tr\'ansito cada a\~no \citep{inei2022sistema,mtc2024observatorio}. A pesar de la existencia de plataformas de datos abiertos --como el Sistema Integrado de Estad\'isticas de la Criminalidad y Seguridad Ciudadana del INEI y el Observatorio Nacional de Seguridad Vial del MTC--, estas fuentes suelen analizarse de forma aislada y descriptiva, sin integrarse en una herramienta \'unica que permita anticipar d\'onde y cu\'ando es m\'as probable que ocurran hechos delictivos o accidentes de tr\'ansito, y que oriente as\'i la programaci\'on de los patrullajes preventivos.
+
+El presente trabajo de investigaci\'on propone, por un lado, el dise\~no y la validaci\'on experimental de un modelo de analítica predictiva espacio-temporal --basado en mapas de calor (an\'alisis de puntos calientes o \textit{hotspots}) mediante estimaci\'on de densidad de kernel (\textit{Kernel Density Estimation}, KDE) y en algoritmos de aprendizaje autom\'atico-- que estima la probabilidad relativa de ocurrencia de hechos delictivos y accidentes por zona, d\'ia y franja horaria; y, por otro lado, la definici\'on de una arquitectura de referencia para un Sistema de Informaci\'on Geogr\'afica (SIG), dejando abierto el desarrollo de la aplicaci\'on a futuros equipos de software. El modelo tiene como prop\'osito generar recomendaciones de horarios y sectores priorizados para el patrullaje preventivo, apoyando la toma de decisiones operativas de las comisar\'ias, del serenazgo municipal y de las \'areas de gesti\'on vial; asimismo, sus mapas de riesgo resultan de inter\'es para el sector asegurador, al permitir identificar zonas y franjas horarias de mayor siniestralidad con fines de prevenci\'on y tarificaci\'on.
+
+Metodol\'ogicamente, la investigaci\'on es de tipo aplicada, con un enfoque cuantitativo, dise\~no no experimental, y sigue la metodolog\'ia CRISP-DM \citep{crispdm2000} para el ciclo de vida del componente anal\'itico-predictivo. La validaci\'on del modelo se realiza mediante simulaci\'on sobre datos hist\'oricos (validaci\'on cruzada temporal o \textit{backtesting}) construidos a partir de fuentes de datos abiertos, en lugar del desarrollo de un prototipo operativo. Para orientar el futuro desarrollo de software, se propone una arquitectura tecnol\'ogica de referencia basada en herramientas de c\'odigo abierto: PostgreSQL/PostGIS como motor de base de datos espacial \citep{postgis2024}, Python para el procesamiento y modelado de datos, y bibliotecas de visualizaci\'on web (Leaflet) para la capa de presentaci\'on cartogr\'afica.
+
+Se espera que el modelo validado y la arquitectura de referencia constituyan instrumentos replicables de bajo costo para gobiernos locales, comisar\'ias y aseguradoras del Per\'u, contribuyendo a una gesti\'on de la seguridad ciudadana y vial basada en evidencia, y dejando establecida la base para el desarrollo posterior del sistema.
+
+\vspace{0.5cm}
+\noindent\textbf{Palabras clave:} analítica predictiva espacio-temporal, criminalidad, siniestralidad vial, patrullaje preventivo, datos abiertos, mapas de calor, arquitectura de referencia.
+
+\newpage
+
+% =========================================================
+% ABSTRACT
+% =========================================================
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+Citizen insecurity and road traffic accidents are two of the most pressing public problems in Peru, particularly in Metropolitan Lima, where perceived insecurity exceeds 90\% of the population and thousands of traffic incidents are recorded every year \citep{inei2022sistema,mtc2024observatorio}. Although open data platforms exist --such as INEI's Integrated Crime and Citizen Security Statistics System and the Ministry of Transport's National Road Safety Observatory-- these sources are usually analyzed in isolation and descriptively, without being integrated into a single tool capable of anticipating where and when criminal incidents or traffic accidents are more likely to occur, in order to guide preventive patrol scheduling.
+
+This research proposes, on the one hand, the design and experimental validation of a spatio-temporal predictive analytics model --based on hotspot maps through Kernel Density Estimation (KDE) and machine learning algorithms-- that estimates the relative probability of criminal incidents and accidents by zone, day, and time slot; and, on the other hand, the definition of a reference architecture for a Geographic Information System (GIS), leaving the application's development open to future software teams. The model aims to generate schedule and priority-zone recommendations for preventive patrolling, supporting operational decision-making by police stations, municipal citizen-security units and road-safety managers. Its risk maps are also of interest to the insurance sector, as they identify zones and time slots with higher accident rates for prevention and pricing purposes.
+
+Methodologically, this is an applied, quantitative, non-experimental study that follows the CRISP-DM methodology \citep{crispdm2000} for the analytics lifecycle. The model is validated through simulation on historical data (temporal cross-validation, i.e., backtesting) built from open data sources, rather than through the development of an operational prototype. To guide future software development, a reference technology architecture based on open-source tools is proposed: PostgreSQL/PostGIS as the spatial database engine \citep{postgis2024}, Python for data processing and modeling, and web mapping libraries (Leaflet) for the presentation layer.
+
+The validated model and the reference architecture are expected to become low-cost, replicable tools for Peruvian local governments, police stations and insurance companies, contributing to evidence-based management of citizen and road safety, and laying the groundwork for the subsequent development of the system.
+
+\vspace{0.5cm}
+\noindent\textbf{Keywords:} spatio-temporal predictive analytics, crime, road safety, preventive patrolling, open data, hotspot maps, reference architecture.
+
+\newpage
+
+% =========================================================
+% INTRODUCCI\'ON
+% =========================================================
+\chapter*{Introducci\'on}
+\addcontentsline{toc}{chapter}{Introducci\'on}
+
+La seguridad ciudadana es, de manera sostenida, uno de los principales problemas p\'ublicos percibidos por la poblaci\'on peruana. De acuerdo con el Instituto Nacional de Estad\'istica e Inform\'atica (INEI), la percepci\'on de inseguridad ciudadana en Lima Metropolitana se ha mantenido por encima del 88\% durante los \'ultimos a\~nos, mientras que la tasa de victimizaci\'on --pese a fluctuaciones-- contin\'ua siendo elevada \citep{inei2022sistema}. De manera paralela, la siniestralidad vial representa otra fuente cr\'itica de p\'erdida de vidas humanas: el Ministerio de Transportes y Comunicaciones (MTC), a trav\'es de su Observatorio Nacional de Seguridad Vial, reporta que en el Per\'u fallecen en promedio m\'as de 260 personas al mes a causa de accidentes de tr\'ansito, con Lima como la regi\'on de mayor incidencia absoluta \citep{mtc2024observatorio}.
+
+Ambos fen\'omenos --criminalidad y siniestralidad vial-- comparten una caracter\'istica que resulta clave para su abordaje tecnol\'ogico: no se distribuyen de manera uniforme en el espacio ni en el tiempo, sino que se concentran en determinadas zonas (\textit{hotspots}) y franjas horarias, un hallazgo ampliamente documentado en la literatura de an\'alisis criminal y de seguridad vial \citep{eck2005mapping,chainey2008kde}. Esta concentraci\'on espacio-temporal es precisamente lo que permite que los Sistemas de Informaci\'on Geogr\'afica (SIG), combinados con t\'ecnicas de anal\'itica predictiva, puedan aportar valor concreto a la planificaci\'on del patrullaje preventivo, en la medida en que permiten estimar d\'onde y cu\'ando es m\'as probable que ocurra un hecho delictivo o un accidente, y priorizar en consecuencia los recursos disponibles.
+
+En el contexto peruano, diversas iniciativas gubernamentales y acad\'emicas han abordado de forma parcial este problema. El INEI, en colaboraci\'on con el Banco Interamericano de Desarrollo, implement\'o el Sistema Integrado de Estad\'isticas de la Criminalidad y Seguridad Ciudadana, que georreferencia denuncias a nivel de comisar\'ia e incluso de manzana \citep{bid2020buenapractica}. A nivel de investigaci\'on de posgrado, se han desarrollado propuestas como un sistema de geolocalizaci\'on con componentes predictivos b\'asicos para la prevenci\'on del crimen urbano en el Callao \citep{talla2025geolocalizacion}, un tablero de control para el patrullaje motorizado policial en Lima Metropolitana \citep{sanchezguevara2022tabcop}, y una soluci\'on de inteligencia de negocios para el patrullaje integrado PNP-Serenazgo en Tarapoto \citep{flores2017patrullaje}. Sin embargo, ninguna de estas iniciativas integra, en un \'unico modelo de analítica predictiva, datos abiertos de criminalidad \textbf{y} de siniestralidad vial orientado espec\'ificamente a recomendar horarios y sectores de patrullaje, ni aporta una arquitectura de referencia que facilite el desarrollo posterior del software.
+
+En este contexto, la presente investigaci\'on tiene como objetivo dise\~nar y validar, a partir de fuentes de datos abiertos, un modelo de analítica predictiva espacio-temporal que permita identificar patrones espaciales y temporales de criminalidad y siniestralidad vial en Lima Metropolitana, y generar recomendaciones para la planificaci\'on de patrullajes preventivos, dejando adem\'as definida una arquitectura de referencia para el desarrollo posterior del correspondiente Sistema de Informaci\'on Geogr\'afica.
+
+El documento se organiza de la siguiente manera: el Cap\'itulo I presenta la informaci\'on general del proyecto. El Cap\'itulo II desarrolla la descripci\'on de la investigaci\'on: el planteamiento del problema, la justificaci\'on, el marco referencial (antecedentes, marco te\'orico y glosario), los objetivos, las limitaciones y la metodolog\'ia del proyecto. El Cap\'itulo III expone los resultados de la investigaci\'on (an\'alisis de datos y validaci\'on del modelo predictivo mediante simulaci\'on). Finalmente, el Cap\'itulo IV presenta las conclusiones y recomendaciones, seguido de las referencias bibliogr\'aficas y los anexos.
+
+\newpage
+
+% =========================================================
+% CAP\'ITULO I: INFORMACI\'ON GENERAL
+% =========================================================
+\chapter{Informaci\'on general}
+
+\section{T\'itulo del proyecto}
+Modelo de analítica predictiva espacio-temporal sobre datos abiertos de criminalidad y siniestralidad vial, como apoyo a la planificaci\'on de patrullajes preventivos en Lima Metropolitana.
+
+\section{\'Area estrat\'egica de desarrollo prioritario}
+El presente proyecto se ubica en el \'ambito de las Tecnolog\'ias de la Informaci\'on y la Comunicaci\'on (TIC) aplicadas a la gesti\'on de la seguridad ciudadana y la seguridad vial, espec\'ificamente en el campo de los Sistemas de Informaci\'on Geogr\'afica (SIG) y la ciencia de datos aplicada (analítica predictiva y aprendizaje autom\'atico). Esta \'area es priorizada de manera expl\'icita por la Pol\'itica Nacional de Transformaci\'on Digital y por la Pol\'itica Nacional Multisectorial de Seguridad Ciudadana al 2030, que promueven el uso de tecnolog\'ias emergentes para el fortalecimiento de la seguridad y el bienestar ciudadano \citep{talla2025geolocalizacion}.
+
+\section{Actividad econ\'omica en la que se aplicar\'ia la investigaci\'on}
+El proyecto se enmarca en el sector de servicios de tecnolog\'ia de la informaci\'on (desarrollo de software) aplicado al sector p\'ublico, particularmente a las entidades responsables de la seguridad ciudadana (Polic\'ia Nacional del Per\'u, gerencias de seguridad ciudadana y serenazgo de los gobiernos locales) y de la seguridad vial (Ministerio de Transportes y Comunicaciones, Autoridad de Transporte Urbano para Lima y Callao -- ATU). El sistema propuesto se orienta a la mejora de procesos de gesti\'on p\'ublica mediante el aprovechamiento de datos abiertos, en l\'inea con la l\'inea de investigaci\'on institucional de Mejora de Procesos y con la l\'inea de Gobierno Digital.
+
+\section{Localizaci\'on o alcance de la soluci\'on}
+El \'ambito geogr\'afico de aplicaci\'on de la propuesta es Lima Metropolitana, Per\'u.
+
+Los resultados del modelo est\'an orientados a ser usados por: (i) personal de comisar\'ias y \'areas de planeamiento operativo de la Polic\'ia Nacional del Per\'u; (ii) gerencias de seguridad ciudadana y centrales de serenazgo de municipalidades distritales; (iii) tomadores de decisi\'on en materia de seguridad vial a nivel municipal y metropolitano; y (iv) aseguradoras y empresas del sector seguros, para quienes los mapas de riesgo de siniestralidad por zona y franja horaria constituyen un insumo valioso para la evaluaci\'on, la prevenci\'on y la tarificaci\'on de riesgos. La motivaci\'on pr\'actica del proyecto radica en que la incorporaci\'on de an\'alisis espacial y predictivo en la planificaci\'on operativa reduce la dependencia de la experiencia individual o de criterios emp\'iricos no sistematizados, aportando evidencia cuantitativa para la toma de decisiones \citep{eck2005mapping}.
+
+\newpage
+
+% =========================================================
+% CAP\'ITULO II: DESCRIPCI\'ON DE LA INVESTIGACI\'ON
+% =========================================================
+\chapter{Descripci\'on de la investigaci\'on}
+
+\section{Planteamiento del problema}
+
+La inseguridad ciudadana en el Per\'u, y en particular en Lima Metropolitana, se mantiene como uno de los principales problemas p\'ublicos percibidos por la poblaci\'on. Seg\'un cifras del INEI, entre el periodo julio-diciembre de 2020 y el mismo periodo de 2021, la percepci\'on de inseguridad ciudadana en Lima Metropolitana se increment\'o de 89.7\% a 92.9\%, a pesar de que la tasa de victimizaci\'on efectiva descendi\'o de 26.8\% a 22.3\% en el mismo lapso \citep{inei2022sistema}. Esta aparente contradicci\'on --menor victimizaci\'on pero mayor percepci\'on de inseguridad-- evidencia que la gesti\'on de la seguridad ciudadana no puede sustentarse \'unicamente en indicadores agregados anuales, sino que requiere de herramientas que permitan comunicar y accionar sobre patrones espaciales y temporales concretos, visibles y comprensibles tanto para los tomadores de decisi\'on como, eventualmente, para la ciudadan\'ia.
+
+De manera paralela, la siniestralidad vial constituye un problema de salud p\'ublica de magnitud comparable. El MTC reporta que en el Per\'u fallecen aproximadamente 12 personas al d\'ia por accidentes de tr\'ansito, con Lima concentrando la mayor cantidad absoluta de siniestros a nivel nacional (35\,354 eventos en un periodo reciente de an\'alisis, muy por encima de Arequipa o La Libertad) \citep{mtc2024observatorio}. Al igual que en el caso de la criminalidad, la ocurrencia de siniestros viales no es aleatoria: se concentra en determinados corredores viales, intersecciones, horarios (de manera notoria en la madrugada y en horas de baja visibilidad) y tipos de v\'ia.
+
+Pese a la existencia de fuentes de datos abiertos relevantes --como el Sistema Integrado de Estad\'isticas de la Criminalidad y Seguridad Ciudadana del INEI \citep{inei2022sistema} y el Observatorio Nacional de Seguridad Vial del MTC \citep{mtc2024observatorio}--, se identifican al menos tres brechas relevantes para la gesti\'on operativa de la seguridad:
+
+\begin{enumerate}
+    \item \textbf{Fragmentaci\'on de fuentes.} Los datos de criminalidad y de siniestralidad vial se publican en plataformas independientes, con formatos, niveles de agregaci\'on geogr\'afica y periodicidades distintas, lo que dificulta su an\'alisis conjunto por parte de comisar\'ias o gerencias municipales de seguridad ciudadana, que rara vez cuentan con personal especializado en ciencia de datos.
+    \item \textbf{Enfoque descriptivo y no predictivo.} La mayor parte de las herramientas disponibles --incluyendo experiencias nacionales documentadas, como el Tablero de Control de Calidad del Patrullaje (TABCOP) \citep{sanchezguevara2022tabcop}-- se centran en visualizar indicadores hist\'oricos (lo ocurrido), pero no incorporan un componente de estimaci\'on de probabilidad futura que oriente expl\'icitamente d\'onde y cu\'ando priorizar el patrullaje.
+    \item \textbf{Desarticulaci\'on entre el mapa del delito y la programaci\'on operativa.} Investigaciones previas en el contexto peruano han identificado que la ausencia de una metodolog\'ia \'unica y sistematizada de georreferenciaci\'on dificulta la elaboraci\'on de mapas del delito comparables entre comisar\'ias, y que la coordinaci\'on entre la Direcci\'on de Estad\'istica de la PNP y las comisar\'ias para el manejo uniforme de esta informaci\'on es limitada \citep{mora2015sistematizacion}. De manera similar, se ha documentado que la deficiente programaci\'on y seguimiento del patrullaje motorizado por sector es una de las causas m\'as influyentes de su baja calidad en Lima Metropolitana \citep{sanchezguevara2022tabcop}.
+\end{enumerate}
+
+En consecuencia, se identifica la necesidad de un modelo de analítica predictiva que integre datos abiertos de criminalidad y de siniestralidad vial, capaz de generar mapas de calor y estimaciones de probabilidad espacio-temporal que sirvan como insumo objetivo para la programaci\'on de patrullajes preventivos, as\'i como de una arquitectura de referencia que oriente el posterior desarrollo del correspondiente Sistema de Informaci\'on Geogr\'afica.
+
+\subsection{Problemas de investigaci\'on}
+
+\subsubsection{Problema general}
+\'?En qu\'e medida un modelo de analítica predictiva espacio-temporal, construido sobre datos abiertos de criminalidad y siniestralidad vial, permite estimar las zonas y franjas horarias de mayor riesgo para apoyar la planificaci\'on de patrullajes preventivos en Lima Metropolitana?
+
+\subsubsection{Problemas espec\'ificos}
+\begin{itemize}
+    \item[PE1:] \'?C\'omo se distribuyen espacial y temporalmente los hechos delictivos y los siniestros de tr\'ansito registrados en las fuentes de datos abiertos disponibles para Lima Metropolitana?
+    \item[PE2:] \'?Qu\'e t\'ecnicas de an\'alisis espacial y de aprendizaje autom\'atico permiten estimar con mayor precisi\'on las zonas y franjas horarias de mayor probabilidad de ocurrencia de hechos delictivos y siniestros viales?
+    \item[PE3:] \'?Qu\'e arquitectura de referencia, basada en componentes de c\'odigo abierto, permitir\'ia integrar en un futuro Sistema de Informaci\'on Geogr\'afica web los componentes de recolecci\'on de datos, modelado predictivo y visualizaci\'on cartogr\'afica?
+    \item[PE4:] \'?En qu\'e medida las recomendaciones generadas por el modelo (sectores y horarios priorizados) son consistentes con los patrones hist\'oricos observados en los datos de validaci\'on?
+\end{itemize}
+
+\section{Justificaci\'on}
+
+\subsection{Justificaci\'on te\'orica}
+La presente investigaci\'on se sustenta en el cuerpo te\'orico de la criminolog\'ia ambiental y del an\'alisis espacial del delito, que sostiene que el comportamiento delictivo no se distribuye de manera aleatoria en el territorio, sino que se concentra en function de oportunidades, rutinas y caracter\'isticas del entorno construido \citep{eck2005mapping}. Bajo este marco, t\'ecnicas como la estimaci\'on de densidad de kernel (KDE) han demostrado utilidad emp\'irica para predecir patrones espaciales futuros de criminalidad a partir de la concentraci\'on hist\'orica de eventos \citep{chainey2008kde}. De manera complementaria, la literatura sobre \textit{predictive policing} ha explorado modelos de procesos puntuales autoexcitados, en los que la ocurrencia de un delito incrementa temporalmente la probabilidad de delitos similares en su vecindad espacial y temporal \citep{mohler2011selfexciting}, as\'i como marcos de referencia m\'as amplios sobre el rol de la predicci\'on del delito en las operaciones policiales \citep{perry2013predictive}. Esta investigaci\'on traslada dichos marcos conceptuales, ampliamente aplicados en contextos internacionales, al an\'alisis conjunto e in\'edito de criminalidad y siniestralidad vial con datos abiertos peruanos.
+
+\subsection{Justificaci\'on metodol\'ogica}
+Se opt\'o por un enfoque cuantitativo y aplicado, apoyado en la metodolog\'ia CRISP-DM \citep{crispdm2000}, ampliamente validada en la industria, para estructurar el ciclo de vida del componente anal\'itico-predictivo (comprensi\'on del negocio, comprensi\'on y preparaci\'on de los datos, modelado, evaluaci\'on y despliegue). Esta metodolog\'ia resulta especialmente adecuada para un proyecto de alcance acotado como una tesina t\'ecnica, porque garantiza el rigor en el tratamiento estad\'istico y geoespacial de los datos y permite validar el modelo mediante simulaci\'on sobre datos hist\'oricos (validaci\'on cruzada temporal o \textit{backtesting}), sin requerir el desarrollo de un sistema operativo; el desarrollo del software queda orientado por la arquitectura de referencia propuesta y planteado como l\'inea de trabajo futura.
+
+\subsection{Justificaci\'on pr\'actica}
+En el plano pr\'actico, la investigaci\'on se justifica porque aporta un modelo validado y reproducible, construido \'integramente con datos abiertos y herramientas de c\'odigo abierto, que puede ser adoptado sin costos de licenciamiento por comisar\'ias, gobiernos locales y aseguradoras con recursos presupuestales limitados. Investigaciones nacionales previas han evidenciado que la deficiente programaci\'on del patrullaje motorizado por sector es una de las causas m\'as relevantes de su baja calidad en Lima Metropolitana \citep{sanchezguevara2022tabcop}, y que experiencias comparadas --como el Plan Nacional de Vigilancia Comunitaria por Cuadrantes de Colombia o el Plan Cuadrante de Seguridad Preventiva de Carabineros de Chile-- han mostrado mejoras operativas relevantes al introducir criterios sistem\'aticos de sectorizaci\'on y an\'alisis espacio-temporal en la planificaci\'on policial. En este sentido, el modelo propuesto busca aportar evidencia cuantitativa directamente utilizable para la reducci\'on de la deficiente programaci\'on del patrullaje identificada como causa cr\'itica en la literatura nacional, sumar por primera vez la dimensi\'on de siniestralidad vial a este tipo de an\'alisis y ofrecer, adem\'as, un insumo objetivo para la evaluaci\'on de riesgos por parte del sector asegurador.
+
+\section{Marco referencial}
+
+\subsection{Antecedentes de investigaci\'on}
+
+\subsubsection{Internacionales}
+
+\citet{chainey2008kde} evaluaron la utilidad predictiva de distintas t\'ecnicas de mapeo de puntos calientes (\textit{hotspot mapping}), incluyendo la estimaci\'on de densidad de kernel, para anticipar la ubicaci\'on futura de delitos en Londres. Su metodolog\'ia compar\'o el desempe\~no predictivo de cinco t\'ecnicas distintas de an\'alisis espacial, encontrando que el KDE ofrece un balance adecuado entre precisi\'on predictiva y facilidad de interpretaci\'on visual para analistas no especializados, raz\'on por la cual se ha convertido en el est\'andar de facto en software de mapeo delictivo policial a nivel internacional. Los autores concluyen que, si bien ning\'una t\'ecnica de \textit{hotspot mapping} logra una predicci\'on perfecta, todas superan de manera significativa a la ausencia de an\'alisis espacial, lo cual respalda la pertinencia de incorporar este tipo de t\'ecnicas incluso en contextos con datos limitados.
+
+Por su parte, \citet{mohler2011selfexciting} propusieron un modelo de procesos puntuales autoexcitados (an\'alogo a los modelos epid\'emicos de r\'eplicas s\'ismicas) para representar la din\'amica temporal del delito, bajo la premisa de que un hecho delictivo incrementa transitoriamente el riesgo de delitos similares en su entorno cercano (efecto de contagio o victimizaci\'on repetida cercana). Este modelo sent\'o las bases te\'oricas de plataformas comerciales de \textit{predictive policing} adoptadas posteriormente en distintas ciudades de Estados Unidos. El informe de \citet{perry2013predictive}, elaborado para la RAND Corporation, sistematiza la experiencia de m\'ultiples departamentos de polic\'ia en la adopci\'on de herramientas predictivas, concluyendo que su valor depende cr\'iticamente de la calidad de los datos de entrada y de su integraci\'on efectiva en los procesos operativos existentes, y no \'unicamente de la sofisticaci\'on del modelo estad\'istico empleado; hallazgo que resulta especialmente relevante para el dise\~no de la arquitectura de datos del presente proyecto.
+
+En el \'ambito latinoamericano, \citet{kahn2019cartografia} document\'o la aplicaci\'on de t\'ecnicas de cartograf\'ia criminal (SIG especializados, regresiones espaciales, superficies de probabilidad) en la investigaci\'on criminal de S\~ao Paulo, Brasil, distinguiendo entre un nivel de an\'alisis operativo-t\'actico (de uso cotidiano por unidades policiales de base) y un nivel de an\'alisis estrat\'egico-investigativo (reservado a analistas especializados con software SIG avanzado). Esta distinci\'on resulta \'util para el presente proyecto, que se orienta deliberadamente al primer nivel: una herramienta operativa, sencilla e interpretable para el personal de comisar\'ias, m\'as que un sistema de an\'alisis criminal avanzado para especialistas.
+
+\subsubsection{Nacionales}
+
+En el contexto peruano, \citet{mora2015sistematizacion} analiz\'o el uso de tecnolog\'ias para la sistematizaci\'on de informaci\'on sobre el crimen en comisar\'ias del Cercado de Lima, identificando que la ausencia de una metodolog\'ia \'unica de recolecci\'on de informaci\'on dificulta la elaboraci\'on de mapas del delito comparables entre comisar\'ias, y que existe una limitada coordinaci\'on entre la Direcci\'on de Estad\'istica de la PNP y las comisar\'ias para el manejo uniforme de esta informaci\'on, a pesar de la disponibilidad de herramientas gratuitas de mapeo en l\'inea. Esta investigaci\'on evidencia un vac\'io de estandarizaci\'on que el presente proyecto busca mitigar mediante el uso de fuentes de datos abiertos oficiales y un modelo de datos espacial \'unico.
+
+\citet{sanchezguevara2022tabcop} desarrollaron el Tablero de Control de Calidad del Patrullaje (TABCOP) como respuesta al problema p\'ublico de la baja calidad del patrullaje motorizado policial en Lima Metropolitana durante el periodo 2019-2021. Su investigaci\'on identific\'o que la causa m\'as influyente de esta baja calidad es la deficiente programaci\'on y seguimiento del servicio, y propusieron una herramienta tecnol\'ogica de visualizaci\'on de indicadores clave de desempe\~no sobre incidencia delictiva y ejecuci\'on del patrullaje. Los autores documentaron, adem\'as, experiencias comparadas relevantes: el Plan Nacional de Vigilancia Comunitaria por Cuadrantes de la Polic\'ia Nacional de Colombia, que introdujo el ``cuadrante'' como unidad m\'inima de an\'alisis territorial con sistemas de informaci\'on geogr\'afica integrados; el Plan Cuadrante de Seguridad Preventiva de Carabineros de Chile, que formaliz\'o indicadores cuantitativos de equilibrio entre oferta y demanda de vigilancia policial por zona; y el programa Barrio en Paz del Gobierno de Chile, que prioriz\'o intervenciones en \'areas peque\~nas de alta incidencia delictiva mediante \'indices compuestos. Estas tres experiencias respaldan, desde la pr\'actica comparada, la pertinencia de introducir criterios sistem\'aticos de an\'alisis espacial en la programaci\'on del patrullaje, tal como propone el presente proyecto.
+
+En el \'ambito regional, \citet{flores2017patrullaje} desarroll\'o una soluci\'on de inteligencia de negocios para mejorar el patrullaje integrado PNP-Serenazgo en la jurisdicci\'on de la Comisar\'ia PNP de Tarapoto, demostrando que la incorporaci\'on de tableros de indicadores mejora la coordinaci\'on interinstitucional en la gesti\'on de la seguridad ciudadana a nivel local, aunque sin incorporar un componente predictivo ni de an\'alisis espacial expl\'icito. M\'as recientemente, \citet{talla2025geolocalizacion} propusieron un sistema de geolocalizaci\'on y an\'alisis digital forense con un componente predictivo b\'asico orientado a la prevenci\'on del crimen urbano en la Provincia Constitucional del Callao, cuyo objetivo expl\'icito es el an\'alisis de patrones espacio-temporales a partir de datos policiales para apoyar la planificaci\'on del patrullaje preventivo; esta propuesta es, entre los antecedentes revisados, la m\'as pr\'oxima conceptualmente al presente proyecto, aunque se centra exclusivamente en delitos de extorsi\'on y no incorpora la dimensi\'on de siniestralidad vial. Finalmente, \citet{ramosespinoza2025sised} dise\~naron un prototipo de sistema integral de sistematizaci\'on y evaluaci\'on (SISED) para la Direcci\'on de Investigaci\'on Criminal de la PNP, orientado a la clasificaci\'on autom\'atica de denuncias y al monitoreo en tiempo real de casos mediante inteligencia artificial, evidenciando una tendencia creciente en la administraci\'on p\'ublica peruana hacia la adopci\'on de herramientas de an\'alisis de datos e inteligencia artificial para la gesti\'on de la seguridad.
+
+De la revisi\'on de antecedentes se concluye que, si bien existen esfuerzos nacionales relevantes de sistematizaci\'on, visualizaci\'on y, en menor medida, predicci\'on b\'asica de la criminalidad, ninguno integra de manera expl\'icita la siniestralidad vial junto con la criminalidad en una \'unica plataforma de analítica predictiva orientada a la programaci\'on operativa del patrullaje, lo que constituye el aporte diferencial de la presente investigaci\'on.
+
+\subsection{Marco te\'orico}
+
+\subsubsection{Sistemas de Informaci\'on Geogr\'afica (SIG)}
+Un Sistema de Informaci\'on Geogr\'afica es un conjunto integrado de hardware, software, datos y procedimientos dise\~nado para capturar, almacenar, manipular, analizar y presentar informaci\'on referenciada geogr\'aficamente. En el \'ambito de la seguridad p\'ublica, los SIG permiten superponer capas de informaci\'on (por ejemplo, denuncias delictivas, siniestros viales, infraestructura vial, densidad poblacional) sobre una base cartogr\'afica com\'un, facilitando el an\'alisis visual e inferencial de relaciones espaciales que resultar\'ian dif\'iciles de identificar en tablas de datos convencionales \citep{eck2005mapping}.
+
+\subsubsection{Mapas de calor y estimaci\'on de densidad de kernel (KDE)}
+La estimaci\'on de densidad de kernel es una t\'ecnica estad\'istica no param\'etrica que permite transformar un conjunto de puntos discretos (por ejemplo, ubicaciones de denuncias) en una superficie continua de densidad, donde cada celda del espacio recibe un valor proporcional a la concentraci\'on de eventos en su vecindad, ponderada por una funci\'on de suavizado (\textit{kernel}) y un ancho de banda determinado \citep{silverman1986kde}. Aplicada al an\'alisis criminal, esta t\'ecnica genera los denominados ``mapas de calor'' (Figura \ref{fig:heatmap-concepto}) que visualizan de manera intuitiva las zonas de mayor concentraci\'on hist\'orica de eventos, y que --seg\'un la evidencia emp\'irica-- conservan un poder predictivo razonable sobre la ubicaci\'on de eventos futuros en el corto plazo \citep{chainey2008kde}. La Figura \ref{fig:kde-concepto} ilustra de manera conceptual esta transformaci\'on de puntos discretos en una superficie continua de densidad.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=0.62]
+  \foreach \x/\y/\c in {%
+    0/0/0, 1/0/10, 2/0/30, 3/0/10, 4/0/0, 5/0/0,
+    0/1/20, 1/1/45, 2/1/70, 3/1/25, 4/1/5, 5/1/0,
+    0/2/10, 1/2/60, 2/2/95, 3/2/55, 4/2/15, 5/2/5,
+    0/3/0, 1/3/25, 2/3/80, 3/3/40, 4/3/10, 5/3/0}
+  {
+    \fill[red!\c!yellow!70] (\x,\y) rectangle ++(1,1);
+    \draw[gray!35] (\x,\y) rectangle ++(1,1);
+  }
+  \node[font=\scriptsize, anchor=west] at (6.5,1.5) {mayor concentraci\'on $\Rightarrow$ \textit{hotspot}};
+\end{tikzpicture}
+\caption[Mapa de calor conceptual]{Ilustraci\'on conceptual de un mapa de calor sobre una malla espacial (\textit{grid}): cada celda agrega los eventos de su vecindad y el color indica la intensidad estimada de concentraci\'on. Elaboraci\'on propia.}
+\label{fig:heatmap-concepto}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    width=0.85\textwidth, height=5.4cm,
+    xlabel={Eje espacial (ubicaci\'on de los eventos)},
+    ylabel={Densidad estimada},
+    axis lines=left,
+    xmin=0, xmax=6, ymin=0, ymax=3.4,
+    xtick=\empty, ytick=\empty,
+    tick label style={font=\small},
+    label style={font=\small},
+]
+\addplot[only marks, mark=*, mark size=1.7pt, color=black!70]
+  coordinates {(0.6,0.04) (0.9,0.04) (1.2,0.04) (1.5,0.04) (1.8,0.04)
+               (3.4,0.04) (3.7,0.04) (4.9,0.04)};
+\addplot[smooth, thick, color=blue!60!black, domain=0:6, samples=140]
+  {2.6*exp(-((x-1.2)^2)/0.35) + 1.5*exp(-((x-3.55)^2)/0.22)
+   + 0.9*exp(-((x-4.9)^2)/0.30)};
+\end{axis}
+\end{tikzpicture}
+\caption[Estimaci\'on de densidad de kernel (KDE)]{Ilustraci\'on conceptual de la estimaci\'on de densidad de kernel (KDE): los puntos discretos (eventos georreferenciados) se transforman en una superficie continua de densidad cuya cresta identifica los puntos calientes (\textit{hotspots}). Elaboraci\'on propia.}
+\label{fig:kde-concepto}
+\end{figure}
+
+\subsubsection{Analítica predictiva y \textit{predictive policing}}
+La analítica predictiva aplicada a la seguridad (\textit{predictive policing}) comprende el conjunto de t\'ecnicas estad\'isticas y de aprendizaje autom\'atico orientadas a anticipar la ocurrencia, ubicaci\'on o los actores involucrados en eventos delictivos, con base en patrones hist\'oricos \citep{perry2013predictive}. Dentro de este campo, los modelos de procesos puntuales espacio-temporales, como los propuestos por \citet{mohler2011selfexciting}, capturan la dependencia temporal de corto plazo entre eventos cercanos (efecto de ``r\'eplica''), mientras que modelos de aprendizaje autom\'atico supervisado (\'arboles de decisi\'on, bosques aleatorios, regresiones regularizadas) permiten incorporar variables ex\'ogenas (d\'ia de la semana, franja horaria, feriados, condiciones clim\'aticas, tipo de v\'ia) para mejorar la capacidad predictiva sobre el uso exclusivo de la densidad hist\'orica. Es importante subrayar --tal como lo advierte la literatura especializada-- que estos modelos estiman probabilidades relativas de riesgo por zona y periodo, y no predicen eventos individuales ni identifican personas, lo que resulta relevante tanto desde el punto de vista t\'ecnico como \'etico.
+
+\subsubsection{Metodolog\'ia CRISP-DM}
+CRISP-DM (\textit{Cross-Industry Standard Process for Data Mining}) es un modelo de proceso est\'andar, independiente de la industria y de la herramienta, para el desarrollo de proyectos de miner\'ia de datos y ciencia de datos, estructurado en seis fases iterativas: comprensi\'on del negocio, comprensi\'on de los datos, preparaci\'on de los datos, modelado, evaluaci\'on y despliegue \citep{crispdm2000}. Este modelo se emplear\'a para estructurar el desarrollo del componente anal\'itico-predictivo del sistema propuesto.
+
+\subsubsection{Evaluaci\'on de modelos predictivos espaciales}
+La evaluaci\'on del desempe\~no de los modelos de predicci\'on espacial de criminalidad se realiza habitualmente mediante m\'etricas estandarizadas de la literatura de \textit{hotspot mapping}. Destaca el \textbf{\'Indice de Precisi\'on de Predicci\'on} (\textit{Prediction Accuracy Index}, PAI), que mide la proporci\'on de eventos futuros capturados dentro de un porcentaje acotado del territorio priorizado \citep{chainey2008kde}. Complementariamente, la validaci\'on temporal de los modelos se efect\'ua mediante \textit{backtesting}: el modelo se entrena con un periodo hist\'orico y se eval\'ua contra un periodo posterior no visto, respetando el orden cronol\'ogico de los datos \citep{perry2013predictive}. Estas t\'ecnicas se adoptan en el presente trabajo para la validaci\'on experimental del modelo propuesto.
+
+\subsubsection{Datos abiertos gubernamentales relevantes para el proyecto}
+Entre las fuentes de datos abiertos identificadas como insumo para el proyecto destacan:
+\begin{itemize}
+    \item El \textbf{Sistema Integrado de Estad\'isticas de la Criminalidad y Seguridad Ciudadana} del INEI, que ofrece informaci\'on georreferenciada (a nivel de comisar\'ia y, en algunos casos, de manzana) sobre denuncias por tipo de delito, muertes violentas asociadas a hechos delictivos y encuestas de victimizaci\'on \citep{inei2022sistema,bid2020buenapractica}.
+    \item El \textbf{Observatorio Nacional de Seguridad Vial} del MTC, que consolida informaci\'on sobre siniestros de tr\'ansito, incluyendo ubicaci\'on, tipo de v\'ehiculo, gravedad y, en su fase de modernizaci\'on m\'as reciente, horarios de mayor riesgo \citep{mtc2024observatorio}.
+    \item El \textbf{Portal Nacional de Datos Abiertos del Per\'u} (\url{www.datosabiertos.gob.pe}), que centraliza conjuntos de datos p\'ublicos de distintas entidades del Estado, incluyendo, seg\'un disponibilidad, denuncias policiales, siniestros de tr\'ansito y datos censales del INEI, \'utiles para variables de control (densidad poblacional, tipo de zona).
+\end{itemize}
+
+\subsection{Glosario de t\'erminos}
+
+\begin{description}
+    \item[Sistema de Informaci\'on Geogr\'afica (SIG):] Conjunto de herramientas de software, hardware y datos para capturar, almacenar, analizar y visualizar informaci\'on georreferenciada \citep{eck2005mapping}.
+    \item[Mapa del delito:] Representaci\'on gr\'afica, digital o manual, de la prevalencia e incidencia de hechos delictivos en un territorio, utilizada para orientar la estrategia de patrullaje \citep{pnp2018guia}.
+    \item[Hotspot (punto caliente):] \'Area geogr\'afica que concentra una proporci\'on desproporcionadamente alta de eventos (delitos o siniestros) respecto del resto del territorio analizado.
+    \item[Estimaci\'on de densidad de kernel (KDE):] T\'ecnica estad\'istica no param\'etrica utilizada para generar una superficie continua de densidad a partir de un conjunto de puntos discretos \citep{silverman1986kde}.
+    \item[Analítica predictiva:] Conjunto de t\'ecnicas estad\'isticas y de aprendizaje autom\'atico orientadas a estimar la probabilidad de ocurrencia de eventos futuros a partir de datos hist\'oricos.
+    \item[Datos abiertos:] Datos que pueden ser utilizados, reutilizados y redistribuidos libremente por cualquier persona, sujetos, cuando m\'as, a la exigencia de atribuci\'on de la fuente.
+    \item[Patrullaje preventivo:] Modalidad de patrullaje policial o de serenazgo orientada a la disuasi\'on y prevenci\'on de hechos delictivos mediante la presencia y el recorrido planificado de un sector \citep{pnp2013manual}.
+    \item[PostGIS:] Extensi\'on espacial del motor de base de datos PostgreSQL que permite almacenar y consultar objetos geogr\'aficos \citep{postgis2024}.
+    \item[CRISP-DM:] Metodolog\'ia est\'andar para el desarrollo de proyectos de miner\'ia de datos y ciencia de datos \citep{crispdm2000}.
+    \item[\'Indice de Precisi\'on de Predicci\'on (PAI):] M\'etrica est\'andar de la literatura de \textit{hotspot mapping} que eval\'ua la concentraci\'on de eventos futuros dentro de las zonas priorizadas por un modelo \citep{chainey2008kde}.
+\end{description}
+
+\section{Resumen ejecutivo}
+
+Lima Metropolitana enfrenta simult\'aneamente altos niveles de percepci\'on de inseguridad ciudadana y una elevada siniestralidad vial, dos problem\'aticas que, pese a su magnitud, suelen gestionarse con herramientas descriptivas y desarticuladas entre s\'i. La presente investigaci\'on propone el dise\~no y la validaci\'on experimental de un modelo de analítica predictiva espacio-temporal que integra datos abiertos de criminalidad y de siniestros de tr\'ansito para construir mapas de calor mediante estimaci\'on de densidad de kernel y t\'ecnicas de aprendizaje autom\'atico, estimando la probabilidad relativa de ocurrencia de eventos por zona, d\'ia y franja horaria, con el fin de generar recomendaciones de patrullaje preventivo; el desarrollo de la aplicaci\'on se deja abierto, apoyado en una arquitectura de referencia.
+
+El proyecto se desarrollar\'a bajo un enfoque cuantitativo aplicado, siguiendo la metodolog\'ia CRISP-DM para el componente anal\'itico y validando el modelo mediante simulaci\'on sobre datos hist\'oricos (validaci\'on cruzada temporal). La arquitectura tecnol\'ogica de referencia se basa \'integramente en herramientas de c\'odigo abierto (PostgreSQL/PostGIS, Python, bibliotecas de visualizaci\'on web geoespacial), lo que garantiza la viabilidad econ\'omica de su eventual implementaci\'on y adopci\'on por parte de entidades p\'ublicas y aseguradoras con recursos limitados.
+
+Se espera que los resultados del proyecto --los mapas de calor generados y las m\'etricas de desempe\~no del modelo predictivo validado-- constituyan evidencia concreta de la viabilidad t\'ecnica de esta soluci\'on, y sienten una base replicable tanto para su futura adopci\'on institucional como para el desarrollo del sistema por parte de equipos de software.
+
+\section{Objetivos general y espec\'ificos: prop\'osito del proyecto}
+
+\subsection{Objetivo general}
+Dise\~nar y validar, mediante simulaci\'on sobre datos abiertos, un modelo de analítica predictiva espacio-temporal de criminalidad y siniestralidad vial que permita identificar patrones espaciales y temporales de riesgo y generar recomendaciones para la planificaci\'on de patrullajes preventivos en Lima Metropolitana, dejando definida una arquitectura de referencia para el posterior desarrollo del Sistema de Informaci\'on Geogr\'afica.
+
+\subsection{Objetivos espec\'ificos}
+\begin{description}
+    \item[OE1:] Analizar la distribuci\'on espacial y temporal de los hechos delictivos y siniestros de tr\'ansito registrados en las fuentes de datos abiertos disponibles para el \'ambito de estudio, mediante t\'ecnicas de estad\'istica descriptiva y visualizaci\'on geoespacial.
+    \item[OE2:] Dise\~nar y entrenar un modelo de analítica predictiva espacio-temporal (basado en KDE y en algoritmos de aprendizaje autom\'atico) que estime la probabilidad relativa de ocurrencia de hechos delictivos y siniestros viales por zona, d\'ia y franja horaria.
+    \item[OE3:] Definir una arquitectura tecnol\'ogica de referencia, basada en componentes de c\'odigo abierto, que oriente el futuro desarrollo del Sistema de Informaci\'on Geogr\'afica (base de datos espacial, servicios de procesamiento y modelado, e interfaz web de visualizaci\'on cartogr\'afica).
+    \item[OE4:] Evaluar el desempe\~no del modelo predictivo mediante m\'etricas cuantitativas de precisi\'on espacial (\'indice PAI) sobre datos de validaci\'on no utilizados en el entrenamiento (validaci\'on cruzada temporal).
+\end{description}
+
+\section{Limitaciones}
+
+La presente investigaci\'on presenta las siguientes limitaciones, que resulta pertinente reconocer para contextualizar el alcance de sus resultados:
+
+En primer lugar, la investigaci\'on depende \'integramente de la calidad, completitud y nivel de desagregaci\'on geogr\'afica de las fuentes de datos abiertos disponibles p\'ublicamente. En caso de que los datos oficiales no est\'en disponibles a nivel de coordenadas puntuales, sino agregados a nivel distrital o de comisar\'ia, la resoluci\'on espacial de los mapas de calor y del modelo predictivo se ver\'a limitada a dicho nivel de agregaci\'on, lo cual deber\'a explicitarse con transparencia en el Cap\'itulo III.
+
+En segundo lugar, la investigaci\'on tiene un alcance cient\'ifico-experimental: se dise\~nar\'a y validar\'a el modelo predictivo mediante simulaci\'on sobre datos hist\'oricos (\textit{backtesting}), pero no se desarrollar\'a la aplicaci\'on inform\'atica ni se realizar\'a un despliegue piloto en condiciones operativas reales con una comisar\'ia o municipalidad; el desarrollo del software conforme a la arquitectura de referencia y la validaci\'on operativa quedan propuestos como l\'ineas de trabajo futuras.
+
+En tercer lugar, es importante subrayar una limitaci\'on \'etica y t\'ecnica inherente a este tipo de sistemas: los modelos de analítica predictiva espacial estiman probabilidades relativas de riesgo por \'area geogr\'afica y periodo temporal, y en ning\'un caso permiten (ni deben usarse para) identificar, perfilar o predecir el comportamiento de personas espec\'ificas. El sistema propuesto se limita expl\'icitamente al nivel agregado espacio-temporal.
+
+Finalmente, el alcance geogr\'afico definido (Lima Metropolitana o el \'ambito acotado que se determine) condiciona la generalizaci\'on de los hallazgos a otras realidades urbanas del pa\'is con din\'amicas delictivas y de tr\'ansito distintas.
+
+\section{Metodolog\'ia del proyecto}
+
+\subsection{Enfoque de investigaci\'on}
+La investigaci\'on adopta un enfoque \textbf{cuantitativo}, en la medida en que se apoya en el an\'alisis estad\'istico y geoespacial de datos num\'ericos (frecuencias de eventos, coordenadas geogr\'aficas, series temporales) para identificar patrones y construir modelos predictivos, en l\'inea con el tipo de evidencia emp\'irica empleada en la literatura de \textit{predictive policing} revisada \citep{chainey2008kde,mohler2011selfexciting}.
+
+\subsection{Tipo de investigaci\'on}
+Se trata de una investigaci\'on de tipo \textbf{aplicada}, con un componente cient\'ifico-experimental: su prop\'osito central es el dise\~no y la validaci\'on de un modelo de analítica predictiva que resuelva un problema pr\'actico identificado, dejando el desarrollo del artefacto de software como una derivaci\'on futura guiada por la arquitectura de referencia propuesta. El producto principal de la investigaci\'on es, por tanto, el modelo validado y las recomendaciones derivadas de \'el, constituy\'endose en un resultado de investigaci\'on aplicada directamente aprovechable por equipos de desarrollo posteriores.
+
+\subsection{Dise\~no de investigaci\'on}
+El dise\~no es \textbf{no experimental}, de tipo \textbf{longitudinal retrospectivo}, ya que se analizan datos hist\'oricos de criminalidad y siniestralidad vial correspondientes a un periodo determinado (a definir seg\'un disponibilidad de datos, recomend\'andose un m\'inimo de 24 meses para capturar variaciones estacionales), sin manipulaci\'on de variables independientes. El componente de evaluaci\'on del modelo predictivo sigue una l\'ogica de \textbf{validaci\'on cruzada temporal} (\textit{train/test split} respetando el orden cronol\'ogico de los datos), pr\'actica recomendada para evitar fugas de informaci\'on temporal en modelos de series de tiempo y de procesos espacio-temporales.
+
+\subsection{Fuentes y t\'ecnicas de recolecci\'on de datos}
+Las fuentes de datos primarias del proyecto ser\'an exclusivamente \textbf{fuentes secundarias de datos abiertos gubernamentales}, entre las que se considerar\'an:
+\begin{itemize}
+    \item Sistema Integrado de Estad\'isticas de la Criminalidad y Seguridad Ciudadana (INEI) \citep{inei2022sistema}.
+    \item Observatorio Nacional de Seguridad Vial (MTC) \citep{mtc2024observatorio}.
+    \item Portal Nacional de Datos Abiertos del Per\'u (\url{www.datosabiertos.gob.pe}).
+    \item Datos censales y cartograf\'ia base del INEI (para variables de control como densidad poblacional y l\'imites distritales).
+\end{itemize}
+La t\'ecnica de recolecci\'on ser\'a la \textbf{descarga program\'atica o manual de conjuntos de datos p\'ublicos} (\textit{web scraping} \'etico cuando la fuente no ofrezca API o descarga directa, respetando t\'erminos de uso), seguida de un proceso de limpieza, normalizaci\'on y geocodificaci\'on cuando sea necesario.
+
+\subsection{Poblaci\'on y unidad de an\'alisis}
+La poblaci\'on de estudio est\'a constituida por el universo de denuncias delictivas y siniestros de tr\'ansito registrados oficialmente en las plataformas de datos abiertos mencionadas, para el \'ambito geogr\'afico y el periodo temporal definidos. La unidad de an\'alisis es el \textbf{evento georreferenciado individual} (una denuncia o un siniestro), el cual se agrega posteriormente en celdas de una malla espacial (\textit{grid}) y en intervalos temporales (por ejemplo, franjas de 4 horas) para efectos del modelado predictivo.
+
+\subsection{Metodolog\'ia para el componente anal\'itico-predictivo (CRISP-DM)}
+El componente anal\'itico se desarrollar\'a siguiendo las seis fases de CRISP-DM \citep{crispdm2000}, ilustradas en la Figura \ref{fig:crispdm}:
+\begin{enumerate}
+    \item \textbf{Comprensi\'on del negocio:} traducci\'on del problema de patrullaje preventivo en preguntas anal\'iticas espec\'ificas (\'?qu\'e zonas y horarios priorizar?).
+    \item \textbf{Comprensi\'on de los datos:} exploraci\'on estad\'istica descriptiva de las fuentes identificadas (distribuciones por tipo de delito/siniestro, por distrito, por d\'ia de la semana y por hora).
+    \item \textbf{Preparaci\'on de los datos:} limpieza, geocodificaci\'on, construcci\'on de la malla espacial de an\'alisis y de las variables temporales (d\'ia, hora, feriado, estacionalidad).
+    \item \textbf{Modelado:} construcci\'on de mapas de calor mediante KDE \citep{silverman1986kde,chainey2008kde} como l\'inea base, y comparaci\'on con al menos un modelo de aprendizaje autom\'atico supervisado (por ejemplo, un bosque aleatorio o un modelo de regresi\'on de Poisson espacial) que incorpore variables ex\'ogenas.
+    \item \textbf{Evaluaci\'on:} medici\'on del desempe\~no predictivo mediante m\'etricas est\'andar de la literatura de \textit{hotspot mapping}, como el \'Indice de Precisi\'on de Predicci\'on (\textit{Prediction Accuracy Index}, PAI) y curvas de concentraci\'on de aciertos \citep{chainey2008kde}.
+    \item \textbf{Despliegue:} especificaci\'on de la forma en que el modelo validado y sus salidas (mapas de calor, recomendaciones) ser\'ian consumidos por el futuro Sistema de Informaci\'on Geogr\'afica conforme a la arquitectura de referencia propuesta; la implementaci\'on de dicho despliegue queda planteada como trabajo futuro.
+\end{enumerate}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    fase/.style={draw, rounded corners, align=center, font=\small\bfseries,
+                 fill=blue!8, minimum width=3.0cm, minimum height=1.1cm},
+    flecha/.style={-{Latex[length=2.5mm]}, thick, blue!40!black},
+    retro/.style={-{Latex[length=2.5mm]}, thick, dashed, gray}
+  ]
+  \node[fase] (f1) at (0,0)      {1. Comprensi\'on\\del negocio};
+  \node[fase] (f2) at (3.6,0)    {2. Comprensi\'on\\de los datos};
+  \node[fase] (f3) at (7.2,0)    {3. Preparaci\'on\\de los datos};
+  \node[fase] (f4) at (7.2,-2.2) {4. Modelado};
+  \node[fase] (f5) at (3.6,-2.2) {5. Evaluaci\'on};
+  \node[fase] (f6) at (0,-2.2)   {6. Despliegue};
+  \draw[flecha] (f1) -- (f2);
+  \draw[flecha] (f2) -- (f3);
+  \draw[flecha] (f3) -- (f4);
+  \draw[flecha] (f4) -- (f5);
+  \draw[flecha] (f5) -- (f6);
+  \draw[flecha] (f6) -- (f1);
+  \draw[retro] (f5) -- (f2) node[midway, right, font=\scriptsize] {retroalimentaci\'on};
+\end{tikzpicture}
+\caption[Ciclo de vida CRISP-DM]{Fases del ciclo de vida CRISP-DM adoptadas para el componente anal\'itico-predictivo del proyecto. Elaboraci\'on propia a partir de \citet{crispdm2000}.}
+\label{fig:crispdm}
+\end{figure}
+
+\subsection{Cronograma referencial de la investigaci\'on}
+La investigaci\'on se organizar\'a en las etapas que se muestran en la Figura \ref{fig:cronograma}, alineadas con las fases CRISP-DM descritas en la siguiente subsecci\'on, y conducentes a los productos acad\'emicos siguientes: (i) la base de datos consolidada y depurada de criminalidad y siniestralidad vial; (ii) los mapas de calor y el an\'alisis exploratorio espacio-temporal; (iii) el modelo predictivo validado mediante simulaci\'on, con sus m\'etricas de desempe\~no; y (iv) la arquitectura de referencia documentada para el futuro desarrollo del sistema, en el que el resultado cient\'ifico podr\'a adoptarse como caso de uso principal, entre otros, por comisar\'ias, gerencias municipales de seguridad ciudadana y aseguradoras.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[x=1.55cm, y=0.72cm]
+  % rejilla de meses
+  \foreach \i in {0,...,6} { \draw[gray!45] (\i,-0.05) -- (\i,6.35); }
+  \foreach \s [count=\i from 0] in {M1,M2,M3,M4,M5,M6}
+    { \node[font=\small\bfseries] at (\i+0.5,-0.4) {\s}; }
+  % barras de actividades
+  \node[anchor=east, font=\scriptsize] at (-0.15,5.5) {Recoleccion y limpieza de datos};
+  \fill[blue!30, rounded corners=2pt]   (0,5.22) rectangle (2,5.78);
+  \node[anchor=east, font=\scriptsize] at (-0.15,4.5) {An\'alisis exploratorio y KDE};
+  \fill[yellow!50, rounded corners=2pt] (1,4.22) rectangle (4,4.78);
+  \node[anchor=east, font=\scriptsize] at (-0.15,3.5) {Modelo predictivo y simulaci\'on};
+  \fill[orange!45, rounded corners=2pt] (2,3.22) rectangle (5,3.78);
+  \node[anchor=east, font=\scriptsize] at (-0.15,2.5) {Evaluaci\'on de resultados (PAI)};
+  \fill[teal!35, rounded corners=2pt]   (4,2.22) rectangle (6,2.78);
+  \node[anchor=east, font=\scriptsize] at (-0.15,1.5) {Arquitectura de referencia};
+  \fill[green!35, rounded corners=2pt]  (4,1.22) rectangle (6,1.78);
+  \node[anchor=east, font=\scriptsize] at (-0.15,0.5) {Redacci\'on y documentaci\'on};
+  \fill[red!35, rounded corners=2pt]    (0,0.22) rectangle (6,0.78);
+\end{tikzpicture}
+\caption[Cronograma referencial de la investigaci\'on]{Cronograma referencial de la investigaci\'on por meses (M1--M6, aproximadamente seis meses), alineado con las fases CRISP-DM. Elaboraci\'on propia.}
+\label{fig:cronograma}
+\end{figure}
+
+\subsection{Arquitectura tecnol\'ogica de referencia propuesta}
+Con el fin de orientar el futuro desarrollo del software sin ejecutarlo en el presente trabajo, se propone una arquitectura de referencia de tres capas, \'integramente basada en componentes de c\'odigo abierto (Figura \ref{fig:arquitectura}):
+\begin{itemize}
+    \item \textbf{Capa de datos:} PostgreSQL con la extensi\'on PostGIS para el almacenamiento y las consultas espaciales \citep{postgis2024}.
+    \item \textbf{Capa de procesamiento y modelado:} Python (bibliotecas \texttt{pandas}, \texttt{geopandas}, \texttt{scikit-learn}, \texttt{scipy}) para la limpieza de datos, el c\'alculo de KDE y el entrenamiento de modelos de aprendizaje autom\'atico.
+    \item \textbf{Capa de presentaci\'on:} una aplicaci\'on web (por ejemplo, con un \textit{framework} ligero como Flask o FastAPI en el backend, y Leaflet o Mapbox GL para la visualizaci\'on cartogr\'afica interactiva en el frontend), que expone los mapas de calor y las recomendaciones de patrullaje.
+\end{itemize}
+Alternativamente, para fines de an\'alisis exploratorio y elaboraci\'on de mapas est\'aticos durante el desarrollo, puede emplearse QGIS \citep{qgis2024} como herramienta de escritorio de apoyo.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    comp/.style={draw, rounded corners, align=center, font=\scriptsize,
+                 fill=white, minimum height=0.9cm, inner sep=4pt},
+    flecha/.style={-{Latex[length=2.5mm]}, thick, blue!40!black}
+  ]
+  % ---- Capa de presentacion
+  \draw[rounded corners, fill=green!12] (-6.1,3.5) rectangle (6.1,5.5);
+  \node[font=\small\bfseries, anchor=west] at (-5.9,5.08) {Capa de presentaci\'on};
+  \node[comp] at (-3.5,4.0) {Aplicaci\'on web\\(Flask / FastAPI)};
+  \node[comp] at (0.2,4.0)  {Mapa interactivo\\(Leaflet)};
+  \node[comp] at (3.9,4.0)  {Recomendaciones de\\sectores y horarios};
+  % ---- Capa de procesamiento
+  \draw[rounded corners, fill=orange!18] (-6.1,0.7) rectangle (6.1,2.7);
+  \node[font=\small\bfseries, anchor=west] at (-5.9,2.28) {Capa de procesamiento y modelado};
+  \node[comp] at (-4.0,1.2) {pandas / geopandas};
+  \node[comp] at (-1.0,1.2) {scikit-learn};
+  \node[comp] at (3.0,1.2)  {KDE y validaci\'on\\(PAI, backtesting)};
+  % ---- Capa de datos
+  \draw[rounded corners, fill=blue!12] (-6.1,-2.1) rectangle (6.1,-0.1);
+  \node[font=\small\bfseries, anchor=west] at (-5.9,-0.52) {Capa de datos};
+  \node[comp] at (-3.4,-1.6) {PostgreSQL + PostGIS};
+  \node[comp] at (0.6,-1.6)  {Datos abiertos\\(INEI / MTC)};
+  \node[comp] at (3.8,-1.6)  {Cartograf\'ia base\\(INEI / OSM)};
+  % ---- flechas
+  \draw[flecha] (0,3.5) -- (0,2.7) node[midway, right, font=\scriptsize] {consultas};
+  \draw[flecha] (0,-0.1) -- (0,0.7) node[midway, right, font=\scriptsize] {lectura / escritura};
+\end{tikzpicture}
+\caption[Arquitectura tecnol\'ogica de referencia]{Arquitectura tecnol\'ogica de referencia propuesta (tres capas, basada \'integramente en componentes de c\'odigo abierto), dejada como gu\'ia para el futuro desarrollo del sistema. Elaboraci\'on propia.}
+\label{fig:arquitectura}
+\end{figure}
+
+\subsection{Validez y confiabilidad}
+La validez del componente predictivo se establecer\'a mediante la comparaci\'on del desempe\~no del modelo contra un conjunto de datos de prueba no utilizado en el entrenamiento (validaci\'on cruzada temporal o \textit{backtesting}), reportando m\'etricas cuantitativas est\'andar de la disciplina (PAI, \'indice de eficiencia de b\'usqueda, y m\'etricas de clasificaci\'on como precisi\'on y exhaustividad para el modelo de aprendizaje autom\'atico). La confiabilidad del proceso de investigaci\'on se sustentar\'a en pr\'acticas de control de versiones, documentaci\'on del c\'odigo de an\'alisis y trazabilidad de las decisiones metodol\'ogicas adoptadas en cada fase CRISP-DM, de modo que el estudio sea reproducible por terceros.
+
+\subsection{Consideraciones \'eticas}
+El proyecto emplear\'a exclusivamente datos abiertos, agregados y despersonalizados, publicados oficialmente por entidades del Estado peruano, sin recolectar ni procesar datos personales identificables de v\'ictimas, denunciantes o presuntos responsables. El modelo se dise\~na expl\'icitamente para operar a nivel de \'areas geogr\'aficas agregadas (celdas de malla o sectores) y periodos temporales, evitando cualquier funcionalidad de identificaci\'on, perfilamiento o seguimiento de individuos, en l\'inea con las recomendaciones \'eticas discutidas en la literatura sobre \textit{predictive policing} respecto de los riesgos de sesgo y de vigilancia excesiva asociados a un uso inadecuado de estas tecnolog\'ias \citep{perry2013predictive}.
+
+\newpage
+
+% =========================================================
+% CAP\'ITULO III: RESULTADO DE LA INVESTIGACI\'ON
+% =========================================================
+\input{cap3}
+\newpage
+
+% =========================================================
+% CAP\'ITULO V: CONCLUSIONES Y RECOMENDACIONES
+% =========================================================
+\input{cap5_anexos}
+\newpage
+Con base en la literatura revisada y en el dise\~no propuesto, se plantean las siguientes recomendaciones generales, a complementar con las que se deriven de los resultados espec\'ificos obtenidos:
+
+\begin{enumerate}
+    \item \textbf{Fortalecer la calidad y apertura de los datos oficiales.} Se recomienda a las entidades responsables (INEI, MTC, PNP, municipalidades) avanzar hacia la publicaci\'on de datos de criminalidad y siniestralidad vial georreferenciados a nivel de coordenadas puntuales o de cuadrante, con actualizaci\'on peri\'odica, lo cual mejorar\'ia sustancialmente la precisi\'on de este tipo de sistemas.
+    \item \textbf{Desarrollar el sistema conforme a la arquitectura de referencia.} Se recomienda como l\'inea de trabajo futura la implementaci\'on del software (SIG) descrito en la arquitectura de referencia, as\'i como su validaci\'on operativa en una comisar\'ia o municipalidad, contrastando las recomendaciones generadas por el modelo con el criterio experto del personal de patrullaje.
+    \item \textbf{Incorporar retroalimentaci\'on continua.} Se recomienda dise\~nar un mecanismo de actualizaci\'on peri\'odica del modelo predictivo con nuevos datos, dado que los patrones delictivos y de siniestralidad vial cambian en el tiempo.
+    \item \textbf{Establecer salvaguardas \'eticas institucionales.} Se recomienda que cualquier adopci\'on institucional del sistema est\'e acompa\~nada de lineamientos expl\'icitos que limiten su uso al nivel agregado espacio-temporal, evitando cualquier forma de perfilamiento individual.
+    \item \textbf{Explorar la integraci\'on con el SIPCOP.} Se recomienda evaluar, en trabajos futuros, la viabilidad de integrar las recomendaciones del modelo con el Sistema Inform\'atico de Planificaci\'on y Control del Patrullaje Policial (SIPCOP) ya utilizado por la PNP, para facilitar su adopci\'on operativa sin duplicar plataformas.
+    \item \textbf{Evaluar aplicaciones en el sector asegurador.} Se recomienda explorar, junto con aseguradoras, el uso de los mapas de riesgo de siniestralidad por zona y franja horaria para la evaluaci\'on de riesgos, el dise\~no de campa\~nas de prevenci\'on y la tarificaci\'on de seguros vehiculares, considerando siempre el uso agregado y despersonalizado de los datos.
+\end{enumerate}
+
+\newpage
+
+% =========================================================
+% REFERENCIAS BIBLIOGR\'AFICAS
+% =========================================================
+\addcontentsline{toc}{chapter}{Referencias bibliogr\'aficas}
+\bibliography{referencias}
+
+\newpage
+
+% =========================================================
+% ANEXOS
+% =========================================================
+\appendix
+\addcontentsline{toc}{chapter}{Anexos}
+\chapter*{Anexos}
+
+\section*{Anexo 1: Diccionario de datos (a completar)}
+
+\section*{Anexo 2: Especificaci\'on de la arquitectura de referencia (a completar)}
+
+\section*{Anexo 3: C\'odigo fuente del an\'alisis o repositorio (a completar)}
+
+\end{document}

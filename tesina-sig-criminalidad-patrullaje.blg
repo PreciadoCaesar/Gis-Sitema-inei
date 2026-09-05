@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99e (TeX Live 2026)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: tesina-sig-criminalidad-patrullaje.aux
+The style file: apalike.bst
+Database file #1: referencias.bib
+You've used 19 entries,
+            1935 wiz_defined-function locations,
+            571 strings with 8734 characters,
+and the built_in function-call counts, 5882 in all, are:
+= -- 592
+> -- 261
+< -- 13
++ -- 88
+- -- 86
+* -- 437
+:= -- 1145
+add.period$ -- 63
+call.type$ -- 19
+change.case$ -- 139
+chr.to.int$ -- 19
+cite$ -- 19
+duplicate$ -- 212
+empty$ -- 340
+format.name$ -- 109
+if$ -- 1084
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 6
+newline$ -- 104
+num.names$ -- 57
+pop$ -- 90
+preamble$ -- 1
+purify$ -- 138
+quote$ -- 0
+skip$ -- 177
+stack$ -- 0
+substring$ -- 271
+swap$ -- 5
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 112
+warning$ -- 0
+while$ -- 42
+width$ -- 0
+write$ -- 252

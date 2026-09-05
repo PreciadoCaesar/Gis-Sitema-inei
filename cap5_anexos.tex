@@ -1,0 +1,96 @@
+% =========================================================
+% CAP\'ITULO V: CONCLUSIONES Y RECOMENDACIONES
+% =========================================================
+
+\chapter{Conclusiones y recomendaciones}
+
+\section{Conclusiones}
+
+\subsection{Conclusiones respecto al objetivo general}
+
+El objetivo general de la investigaci\'on fue dise\~nar y validar, mediante simulaci\'on sobre datos abiertos, un modelo de anal\'itica predictiva espacio-temporal de criminalidad y siniestralidad vial que permita identificar patrones de riesgo y generar recomendaciones para la planificaci\'on de patrullajes preventivos en Lima Metropolitana, dejando definida una arquitectura de referencia para el posterior desarrollo del Sistema de Informaci\'on Geogr\'afica.
+
+A la luz de los resultados obtenidos en el Cap\'itulo III, se concluye que dicho objetivo fue alcanzado en la medida propuesta: el modelo dise\~nado y validado mediante backtesting logra estimar, con un desempe\~no superior a la l\'inea base KDE, las zonas y franjas horarias de mayor riesgo, integrando por primera vez en este tipo de propuestas las dimensiones de criminalidad y siniestralidad vial desde datos abiertos peruanos. La arquitectura de referencia queda definida y documentada como gu\'ia para el futuro desarrollo del sistema. El aporte principal es, por tanto, un modelo validado y reproducible, y una arquitectura de referencia concreta, ambos construidos con herramientas de c\'odigo abierto y datos abiertos, y listos para ser adoptados o continuados por equipos de software.
+
+\subsection{Conclusiones respecto a los objetivos espec\'ificos}
+
+\begin{description}
+    \item[Respecto a OE1 (an\'alisis espacio-temporal):] El an\'alisis de la distribuci\'on espacial y temporal de los hechos delictivos y de los siniestros de tr\'ansito, mediante estad\'istica descriptiva y visualizaci\'on geoespacial, permiti\'o confirmar que ambos fen\'omenos se concentran en zonas y franjas horarias bien definidas, de acuerdo con la literatura revisada \citep{eck2005mapping,chainey2008kde}. Los mapas de calor generados por KDE identificaron hotspots espaciales coherentes con el nivel de actividad y la infraestructura vial de Lima Metropolitana.
+    \item[Respecto a OE2 (modelo predictivo):] El modelo de anal\'itica predictiva espacio-temporal dise\~nado y entrenado, que combina KDE como l\'inea base con un modelo supervisado que incorpora variables temporales y contextuales, mostr\'o un desempe\~no superior al de la l\'inea base en la concentraci\'on de eventos futuros dentro de las \'areas priorizadas, medido mediante el \'Indice de Precisi\'on de Predicci\'on (PAI) y la eficiencia de b\'usqueda en la validaci\'on temporal.
+    \item[Respecto a OE3 (arquitectura de referencia):] La arquitectura de referencia propuesta, de tres capas y basada en componentes de c\'odigo abierto (PostgreSQL/PostGIS, Python, aplicaci\'on web con Leaflet), result\'o coherente con el modelo validado y con las necesidades de ingesta de datos, modelado y visualizaci\'on cartogr\'afica interactiva, quedando definida y documentada como gu\'ia para el futuro desarrollo del SIG \citep{postgis2024}.
+    \item[Respecto a OE4 (evaluaci\'on):] La evaluaci\'on del modelo mediante la m\'etrica PAI y la validaci\'on cruzada temporal confirm\'o que el modelo supervisado supera a la l\'inea base en la capacidad de concentrar eventos futuros dentro de las \'areas priorizadas, justificando su uso como insumo para la planificaci\'on de patrullajes preventivos.
+\end{description}
+
+\section{Recomendaciones}
+
+Con base en la literatura revisada y en los resultados obtenidos, se plantean las siguientes recomendaciones:
+
+\begin{enumerate}
+    \item \textbf{Fortalecer la calidad y apertura de los datos oficiales.} Se recomienda a las entidades responsables (INEI, MTC, PNP, municipalidades) avanzar hacia la publicaci\'on de datos de criminalidad y siniestralidad vial georreferenciados a nivel de coordenadas puntuales o de cuadrante, con actualizaci\'on peri\'odica, lo cual mejorar\'ia sustancialmente la precisi\'on de este tipo de sistemas.
+    \item \textbf{Desarrollar el sistema conforme a la arquitectura de referencia.} Se recomienda como l\'inea de trabajo futura la implementaci\'on del software (SIG) descrito en la arquitectura de referencia, as\'i como su validaci\'on operativa en una comisaria o municipalidad, contrastando las recomendaciones generadas por el modelo con el criterio experto del personal de patrullaje.
+    \item \textbf{Incorporar retroalimentaci\'on continua.} Se recomienda dise\~nar un mecanismo de actualizaci\'on peri\'odica del modelo predictivo con nuevos datos, dado que los patrones delictivos y de siniestralidad vial cambian en el tiempo.
+    \item \textbf{Establecer salvaguardas \'eticas institucionales.} Se recomienda que cualquier adopci\'on institucional del sistema est\'e acompa\~nada de lineamientos expl\'icitos que limiten su uso al nivel agregado espacio-temporal, evitando cualquier forma de perfilamiento individual, en l\'inea con las consideraciones \'eticas discutidas en el Cap\'itulo II \citep{perry2013predictive}.
+    \item \textbf{Explorar la integraci\'on con el SIPCOP.} Se recomienda evaluar, en trabajos futuros, la viabilidad de integrar las recomendaciones del modelo con el Sistema Inform\'atico de Planificaci\'on y Control del Patrullaje Policial (SIPCOP) ya utilizado por la PNP, para facilitar su adopci\'on operativa sin duplicar plataformas.
+    \item \textbf{Evaluar aplicaciones en el sector asegurador.} Se recomienda explorar, junto con aseguradoras, el uso de los mapas de riesgo de siniestralidad por zona y franja horaria para la evaluaci\'on de riesgos, el dise\~no de campanas de prevenci\'on y la tarificaci\'on de seguros vehiculares, considerando siempre el uso agregado y despersonalizado de los datos.
+\end{enumerate}
+
+\newpage
+
+% =========================================================
+% REFERENCIAS BIBLIOGR\'AFICAS
+% =========================================================
+
+\addcontentsline{toc}{chapter}{Referencias bibliogr\'aficas}
+\bibliography{referencias}
+
+\newpage
+
+% =========================================================
+% ANEXOS
+% =========================================================
+
+\appendix
+\addcontentsline{toc}{chapter}{Anexos}
+\chapter*{Anexos}
+
+\section*{Anexo 1: Diccionario de datos}
+
+\begin{table}[H]
+\centering
+\caption*{Diccionario de datos del conjunto utilizado en la investigaci\'on.}
+\begin{tabular}{p{3.5cm}p{2.5cm}p{5.5cm}}
+\toprule
+Campo & Tipo & Descripci\'on \\
+\midrule
+id\_registro & entero & Identificador \'unico del evento (denuncia o siniestro). \\
+fecha\_hora & fecha/hora & Fecha y hora de registro del evento. \\
+lat\_coord & num\'erico & Latitud del evento (cuando disponible). \\
+lon\_coord & num\'erico & Longitud del evento (cuando disponible). \\
+distrito & texto & Distrito de ocurrencia del evento. \\
+comisaria & texto & Comisaria o jurisdicci\'on asociada (cuando disponible). \\
+tipo\_evento & texto & Tipo de delito o de siniestro de tr\'ansito. \\
+severidad & texto/num\'erico & Grado de gravedad del siniestro (cuando disponible). \\
+tipo\_via & texto & Tipo de v\'ia donde ocurri\'o el evento (cuando disponible). \\
+franja\_horaria & texto & Franja horaria de cuatro horas asignada para el modelado. \\
+d\'ia\_semana & texto & D\'ia de la semana del evento. \\
+es\_feriado & l\'ogico & Indicador de feriado nacional o local. \\
+densidad\_pob\_celda & num\'erico & Densidad poblacional de la celda de la malla (variable de control). \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section*{Anexo 2: Especificaci\'on de la arquitectura de referencia}
+
+La arquitectura de referencia propuesta consta de tres capas:
+
+\begin{itemize}
+    \item \textbf{Capa de datos.} PostgreSQL con la extensi\'on PostGIS para el almacenamiento de datos espaciales y las consultas geoespaciales \citep{postgis2024}. Est\'a alimentada por los datos abiertos del INEI y del MTC, y por la cartograf\'ia base del INEI y de fuentes de cartograf\'ia abierta como OpenStreetMap.
+    \item \textbf{Capa de procesamiento y modelado.} Python con las bibliotecas pandas, geopandas, scikit-learn y scipy para la limpieza y normalizaci\'on de datos, la construcci\'on de la malla espacial, el c\'alculo de KDE y el entrenamiento del modelo supervisado. El flujo de trabajo sigue las fases CRISP-DM descritas en el Cap\'itulo II.
+    \item \textbf{Capa de presentaci\'on.} Una aplicaci\'on web (Flask o FastAPI en el backend, Leaflet en el frontend) que expone un mapa interactivo con los mapas de calor y las recomendaciones de sectores y horarios de patrullaje. Se contempla, adicionalmente, la posibilidad de usar QGIS \citep{qgis2024} como herramienta de escritorio para el an\'alisis exploratorio y los mapas est\'aticos durante el desarrollo.
+\end{itemize}
+
+Las decisiones de dise\~no Adoptadas (c\'odigo abierto, tres capas, modelo de datos espacial basado en PostGIS) responden a los criterios de baja costo, replicabilidad y facilitad de adopci\'on por entidades p\'ublicas y aseguradoras con recursos limitados.
+
+\section*{Anexo 3: C\'odigo fuente del an\'alisis y repositorio}
+
+El c\'odigo del an\'alisis de datos y del modelado predictivo, junto con la documentaci\'on de la arquitectura de referencia, se dispone en el repositorio de este proyecto, de modo que los resultados sean reproducibles y el trabajo pueda ser continuado por futuros equipos de software.

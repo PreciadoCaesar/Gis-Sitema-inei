@@ -1,0 +1,104 @@
+\begin{thebibliography}{}
+
+\bibitem[{Banco Interamericano de Desarrollo [BID]}, 2020]{bid2020buenapractica}
+{Banco Interamericano de Desarrollo [BID]} (2020).
+\newblock Una buena pr{\'a}ctica de gesti{\'o}n p{\'u}blica: mejorar los servicios al ciudadano con el sistema de estad{\'\i}sticas de la criminalidad en el per{\'u}.
+\newblock Blog institucional.
+\newblock Recuperado de https://blogs.iadb.org/administracion-publica/es/una-buena-practica-gestion-publica-mejorar-los-servicios-al-ciudadano-sistema-estadisticas-la-criminalidad-peru.
+
+\bibitem[Chainey et~al., 2008]{chainey2008kde}
+Chainey, S., Tompson, L., and Uhlig, S. (2008).
+\newblock The utility of hotspot mapping for predicting spatial patterns of crime.
+\newblock {\em Security Journal}, 21:4--28.
+
+\bibitem[Chapman et~al., 2000]{crispdm2000}
+Chapman, P., Clinton, J., Kerber, R., Khabaza, T., Reinartz, T., Shearer, C., and Wirth, R. (2000).
+\newblock {CRISP-DM} 1.0: Step-by-step data mining guide.
+\newblock SPSS Inc.
+
+\bibitem[Eck et~al., 2005]{eck2005mapping}
+Eck, J.~E., Chainey, S., Cameron, J.~G., Leitner, M., and Wilson, R.~E. (2005).
+\newblock {\em Mapping Crime: Understanding Hot Spots}.
+\newblock National Institute of Justice, U.S. Department of Justice.
+
+\bibitem[Flores~Flores, 2017]{flores2017patrullaje}
+Flores~Flores, M.~R. (2017).
+\newblock Mejoramiento del patrullaje integrado pnp-serenazgo en la jurisdicci{\'o}n de la comisar{\'\i}a pnp tarapoto con la implementaci{\'o}n de una soluci{\'o}n de inteligencia de negocios.
+\newblock Master's thesis, Universidad Nacional de San Mart{\'\i}n-Tarapoto, Facultad de Ingenier{\'\i}a de Sistemas e Inform{\'a}tica, Tarapoto, Per{\'u}.
+
+\bibitem[{Instituto Nacional de Estad{\'\i}stica e Inform{\'a}tica [INEI]}, 2022]{inei2022sistema}
+{Instituto Nacional de Estad{\'\i}stica e Inform{\'a}tica [INEI]} (2022).
+\newblock Sistema integrado de estad{\'\i}sticas de la criminalidad y seguridad ciudadana.
+\newblock Plataforma en l{\'\i}nea.
+\newblock Recuperado de https://www.gob.pe/institucion/inei/pages/20792-consultar-tasa-de-criminalidad-y-seguridad-ciudadana-en-el-peru.
+
+\bibitem[Kahn, 2019]{kahn2019cartografia}
+Kahn, T. (2019).
+\newblock Utiliza{\c c}{\~a}o de t{\'e}cnicas geogr{\'a}ficas em investiga{\c c}{\~a}o criminal em s{\~a}o paulo, brasil.
+\newblock Presentaci{\'o}n, Banco de Desenvolvimento da Am{\'e}rica Latina (CAF) y Departamento de Seguran{\c c}a P{\'u}blica de la OEA.
+\newblock Recuperado de https://www.caf.com/media/3337700/ppt-tulio-kahn.pdf.
+
+\bibitem[{Ministerio de Transportes y Comunicaciones del Per{\'u} [MTC]}, 2024]{mtc2024observatorio}
+{Ministerio de Transportes y Comunicaciones del Per{\'u} [MTC]} (2024).
+\newblock Observatorio nacional de seguridad vial: reporte de siniestralidad.
+\newblock Reporte estad{\'\i}stico institucional.
+\newblock Cifras difundidas por Andina y medios nacionales sobre siniestros viales 2021-2024.
+
+\bibitem[Mohler et~al., 2011]{mohler2011selfexciting}
+Mohler, G.~O., Short, M.~B., Brantingham, P.~J., Schoenberg, F.~P., and Tita, G.~E. (2011).
+\newblock Self-exciting point process modeling of crime.
+\newblock {\em Journal of the American Statistical Association}, 106(493):100--108.
+
+\bibitem[Mora~Luque, 2015]{mora2015sistematizacion}
+Mora~Luque, P.~N. (2015).
+\newblock Uso de tecnolog{\'\i}as para sistematizaci{\'o}n de la informaci{\'o}n sobre el crimen (usos, problemas de georreferencia y dem{\'a}s).
+\newblock Master's thesis, Pontificia Universidad Cat{\'o}lica del Per{\'u}, Escuela de Posgrado, Lima, Per{\'u}.
+\newblock Texto de art{\'\i}culo publicable para optar el grado de Mag{\'\i}ster en Ciencia Pol{\'\i}tica y Gobierno.
+
+\bibitem[Perry et~al., 2013]{perry2013predictive}
+Perry, W.~L., McInnis, B., Price, C.~C., Smith, S.~C., and Hollywood, J.~S. (2013).
+\newblock Predictive policing: The role of crime forecasting in law enforcement operations.
+\newblock {\em RAND Corporation Research Report}.
+
+\bibitem[{Polic{\'\i}a Nacional del Per{\'u}}, 2013]{pnp2013manual}
+{Polic{\'\i}a Nacional del Per{\'u}} (2013).
+\newblock Manual de patrullaje a pie, patrullaje motorizado y patrullaje a caballo.
+\newblock RD-157-2013-DIRGEN/EMG.
+
+\bibitem[{Polic{\'\i}a Nacional del Per{\'u}}, 2018]{pnp2018guia}
+{Polic{\'\i}a Nacional del Per{\'u}} (2018).
+\newblock Gu{\'\i}a metodol{\'o}gica para el dise{\~n}o de sectores y mapa del delito en la jurisdicci{\'o}n de las comisar{\'\i}as pnp.
+\newblock Resoluci{\'o}n Ministerial N.\textdegree{} 007-2019-IN.
+
+\bibitem[{PostGIS Project Steering Committee}, 2024]{postgis2024}
+{PostGIS Project Steering Committee} (2024).
+\newblock Postgis: Spatial and geographic objects for postgresql.
+
+\bibitem[{QGIS Development Team}, 2024]{qgis2024}
+{QGIS Development Team} (2024).
+\newblock Qgis geographic information system.
+\newblock Open Source Geospatial Foundation Project.
+
+\bibitem[Ramos~Chahuayllo and Espinoza~Ram{\'\i}rez, 2025]{ramosespinoza2025sised}
+Ramos~Chahuayllo, C.~J. and Espinoza~Ram{\'\i}rez, L.~M. (2025).
+\newblock Ineficiente sistematizaci{\'o}n de la informaci{\'o}n b{\'a}sica para afrontar la alta incidencia de delitos de robo en el {\'a}mbito de la responsabilidad de la direcci{\'o}n de investigaci{\'o}n criminal de la pnp de lima metropolitana entre los a{\~n}os 2023 y 2024.
+\newblock Technical report, Pontificia Universidad Cat{\'o}lica del Per{\'u}, Escuela de Posgrado, Lima, Per{\'u}.
+
+\bibitem[S{\'a}nchez~Ram{\'\i}rez and Guevara~Baz{\'a}n, 2022]{sanchezguevara2022tabcop}
+S{\'a}nchez~Ram{\'\i}rez, O.~A. and Guevara~Baz{\'a}n, R.~E. (2022).
+\newblock Tablero de control para enfrentar la baja calidad del patrullaje motorizado policial en lima metropolitana, 2019-2021.
+\newblock Technical report, Pontificia Universidad Cat{\'o}lica del Per{\'u}, Escuela de Posgrado, Lima, Per{\'u}.
+\newblock Trabajo de investigaci{\'o}n para obtener el grado acad{\'e}mico de Maestro en Gobierno y Pol{\'\i}ticas P{\'u}blicas.
+
+\bibitem[Silverman, 1986]{silverman1986kde}
+Silverman, B.~W. (1986).
+\newblock Density estimation for statistics and data analysis.
+\newblock {\em Chapman and Hall}.
+
+\bibitem[Talla De La~Cruz et~al., 2025]{talla2025geolocalizacion}
+Talla De La~Cruz, J.~E., Flores~Romero, E.~L., and Ch{\'a}vez~Navarro, C.~F. (2025).
+\newblock Sistema de geolocalizaci{\'o}n y an{\'a}lisis digital forense con componentes predictivos para la prevenci{\'o}n del crimen urbano en el callao.
+\newblock P{\'o}ster de proyecto de Maestr{\'\i}a en Gobierno y Pol{\'\i}ticas P{\'u}blicas, Pontificia Universidad Cat{\'o}lica del Per{\'u}.
+\newblock Recuperado de https://gobierno.pucp.edu.pe/wp-content/uploads/2025/07/poster\_talla-flores-chavez.pdf.
+
+\end{thebibliography}
