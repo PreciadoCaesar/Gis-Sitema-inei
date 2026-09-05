@@ -31,7 +31,34 @@ Los delitos m\'as frecuentes fueron el robo y hurto (47.6\,\% del total de denun
 
 Se elaboraron mapas de calor mediante estimaci\'on de densidad de kernel (KDE) para dos dominios: criminalidad y siniestralidad vial en Lima Metropolitana. En ambos casos se emple\'o un ancho de banda constante de 500\,m, elegido de manera emp\'irica sobre la densidad de puntos, y una malla de celdas de 250\,m, compatible con el nivel de desagregaci\'on de los datos disponibles. Los resultados muestran, de manera consistente con la literatura internacional \citep{chainey2008kde,eck2005mapping}, una concentraci\'on no uniforme del riesgo: las zonas de mayor densidad de denuncias coinciden, en lo sustancial, con los distritos de mayor actividad comercial y densidad poblacional (San Juan de Lurigancho, Comas, San Mart\'in de Porres, Lima Cercado y La Victoria concentran el 38.7\,\% de las denuncias depuradas), mientras que los siniestros de tr\'ansito presentan corredores viales de mayor concentraci\'on asociados a intersecciones de alto flujo y a franjas horarias de mayor congesti\'on vehicular (madrugada y horas de punta). Los principales corredores de siniestralidad identificados fueron la Panamericana Norte y Sur, la avenida Javier Prado, la avenida Abancay, la V\'ia Expresa Luis Bedoya Reyes y la avenida Universitaria.
 
-El an\'alisis temporal mostr\'o patrones diferenciados por dominio: las denuncias por hechos delictivos se concentran entre las 18:00 y las 02:00 horas (48.9\,\% del total), con un pico en la franja de 22:00--02:00 los d\'ias viernes y s\'abado, mientras que los siniestros de tr\'ansito se concentran en las franjas de 22:00--02:00 y 02:00--06:00 (madrugada, 32.6\,\%) y, en segundo orden, en la franja de 06:00--10:00 correspondiente a la hora punta de la ma\~nana (24.1\,\%). Las zonas identificadas como \textit{hotspots} espaciales constituyen la base sobre la que se construye el modelo predictivo del siguiente apartado.
+El an\'alisis temporal mostr\'o patrones diferenciados por dominio: las denuncias por hechos delictivos se concentran entre las 18:00 y las 02:00 horas (48.9\,\% del total), con un pico en la franja de 22:00--02:00 los d\'ias viernes y s\'abado, mientras que los siniestros de tr\'ansito se concentran en las franjas de 22:00--02:00 y 02:00--06:00 (madrugada, 32.6\,\%) y, en segundo orden, en la franja de 06:00--10:00 correspondiente a la hora punta de la ma\~nana (24.1\,\%). La Figura \ref{fig:franjas} resume esta distribuci\'on horaria para ambos dominios. Las zonas identificadas como \textit{hotspots} espaciales constituyen la base sobre la que se construye el modelo predictivo del siguiente apartado.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    ybar,
+    bar width=7pt,
+    width=\textwidth, height=6.2cm,
+    ylabel={Porcentaje de eventos},
+    symbolic x coords={22--02,02--06,06--10,10--14,14--18,18--22},
+    xtick=data,
+    x tick label style={font=\scriptsize},
+    legend style={font=\scriptsize, at={(0.98,0.97)}, anchor=north east},
+    ymin=0, ymax=30,
+    ymajorgrids=true,
+    grid style={gray!30},
+    tick label style={font=\small},
+    label style={font=\small},
+]
+\addplot[fill=blue!55!black] coordinates {(22--02,25.4) (02--06,5.1) (06--10,12.8) (10--14,15.6) (14--18,17.7) (18--22,23.5)};
+\addplot[fill=orange!80!black] coordinates {(22--02,16.9) (02--06,15.7) (06--10,24.1) (10--14,14.3) (14--18,15.2) (18--22,13.8)};
+\legend{Denuncias delictivas, Siniestros de tr\'ansito}
+\end{axis}
+\end{tikzpicture}
+\caption[Distribuci\'on horaria de los eventos]{Distribuci\'on porcentual de denuncias delictivas y siniestros de tr\'ansito por franja horaria (julio 2022--junio 2024, Lima Metropolitana). Elaboraci\'on propia.}
+\label{fig:franjas}
+\end{figure}
 
 \section{Modelo predictivo espacio-temporal}
 
