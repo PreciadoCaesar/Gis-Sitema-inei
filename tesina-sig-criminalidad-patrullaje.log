@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.9.5)  5 SEP 2026 15:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.9.5)  5 SEP 2026 15:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -922,33 +922,38 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [31] (./cap3.tex
 Cap\'{\i }tulo 3.
 
-Underfull \hbox (badness 3884) in paragraph at lines 18--18
-[]|\T1/lmr/m/n/12 Registros fi-
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]|\T1/lmr/m/n/12 Registros
  []
 
 
-Underfull \hbox (badness 2799) in paragraph at lines 18--19
-[]|\T1/lmr/m/n/12 Unidad geo-
+Underfull \hbox (badness 10000) in paragraph at lines 19--20
+[]|\T1/lmr/m/n/12 Unidad
  []
 
 
-Underfull \hbox (badness 4291) in paragraph at lines 20--21
-[]|\T1/lmr/m/n/12 Comisaría /
+Underfull \hbox (badness 2941) in paragraph at lines 21--21
+[]|\T1/lmr/m/n/12 INEI (Sis-te-ma In-te-
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 21--21
+[]|\T1/lmr/m/n/12 Denuncias
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 21--22
+[]|\T1/lmr/m/n/12 Comisaría
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
 []|\T1/lmr/m/n/12 MTC (Ob-ser-va-to-rio
  []
 
 
-Underfull \hbox (badness 3449) in paragraph at lines 21--21
-[]|\T1/lmr/m/n/12 Siniestros de
- []
-
-
-Overfull \hbox (20.4501pt too wide) in paragraph at lines 16--25
- [][] 
+Underfull \hbox (badness 10000) in paragraph at lines 22--23
+[]|\T1/lmr/m/n/12 Punto /
  []
 
 [32
@@ -962,8 +967,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [33]
-Overfull \hbox (223.04352pt too wide) in paragraph at lines 44--53
- [][] 
+Underfull \hbox (badness 10000) in paragraph at lines 51--51
+[]|\T1/lmr/m/n/12 Modelo su-per-vi-sa-do
  []
 
 
@@ -973,7 +978,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[34{/Users/cesar/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}])
+[34])
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -981,7 +986,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[35]
+[35{/Users/cesar/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1112,7 +1117,7 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  92i,12n,104p,1699b,2115s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/cesar/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></Users/cesar/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></Users/cesar/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></Users/cesar/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></Users/cesar/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb></Users/cesar/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb></Users/cesar/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb></Users/cesar/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri8.pfb></Users/cesar/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></Users/cesar/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></Users/cesar/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on tesina-sig-criminalidad-patrullaje.pdf (46 pages, 343974 bytes).
+Output written on tesina-sig-criminalidad-patrullaje.pdf (46 pages, 344053 bytes).
 PDF statistics:
  819 PDF objects out of 1000 (max. 8388607)
  737 compressed objects within 8 object streams
