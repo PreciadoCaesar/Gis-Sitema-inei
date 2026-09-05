@@ -29,32 +29,32 @@
 \contentsline {subsubsection}{Datos abiertos gubernamentales relevantes para el proyecto}{23}{figure.caption.8}%
 \contentsline {subsection}{\numberline {2.3.3}Glosario de t\'erminos}{24}{subsection.2.3.3}%
 \contentsline {section}{\numberline {2.4}Resumen ejecutivo}{25}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Objetivos general y espec\'ificos: prop\'osito del proyecto}{26}{section.2.5}%
-\contentsline {subsection}{\numberline {2.5.1}Objetivo general}{26}{subsection.2.5.1}%
+\contentsline {section}{\numberline {2.5}Objetivos general y espec\'ificos: prop\'osito del proyecto}{25}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Objetivo general}{25}{subsection.2.5.1}%
 \contentsline {subsection}{\numberline {2.5.2}Objetivos espec\'ificos}{26}{subsection.2.5.2}%
 \contentsline {section}{\numberline {2.6}Limitaciones}{26}{section.2.6}%
 \contentsline {section}{\numberline {2.7}Metodolog\'ia del proyecto}{27}{section.2.7}%
 \contentsline {subsection}{\numberline {2.7.1}Enfoque de investigaci\'on}{27}{subsection.2.7.1}%
 \contentsline {subsection}{\numberline {2.7.2}Tipo de investigaci\'on}{27}{subsection.2.7.2}%
-\contentsline {subsection}{\numberline {2.7.3}Dise\~no de investigaci\'on}{28}{subsection.2.7.3}%
+\contentsline {subsection}{\numberline {2.7.3}Dise\~no de investigaci\'on}{27}{subsection.2.7.3}%
 \contentsline {subsection}{\numberline {2.7.4}Fuentes y t\'ecnicas de recolecci\'on de datos}{28}{subsection.2.7.4}%
 \contentsline {subsection}{\numberline {2.7.5}Poblaci\'on y unidad de an\'alisis}{28}{subsection.2.7.5}%
-\contentsline {subsection}{\numberline {2.7.6}Metodolog\'ia para el componente anal\'itico-predictivo (CRISP-DM)}{29}{subsection.2.7.6}%
-\contentsline {subsection}{\numberline {2.7.7}Cronograma referencial de la investigaci\'on}{30}{subsection.2.7.7}%
+\contentsline {subsection}{\numberline {2.7.6}Metodolog\'ia para el componente anal\'itico-predictivo (CRISP-DM)}{28}{subsection.2.7.6}%
+\contentsline {subsection}{\numberline {2.7.7}Cronograma referencial de la investigaci\'on}{29}{subsection.2.7.7}%
 \contentsline {subsection}{\numberline {2.7.8}Arquitectura tecnol\'ogica de referencia propuesta}{30}{subsection.2.7.8}%
 \contentsline {subsection}{\numberline {2.7.9}Validez y confiabilidad}{31}{subsection.2.7.9}%
-\contentsline {subsection}{\numberline {2.7.10}Consideraciones \'eticas}{32}{subsection.2.7.10}%
-\contentsline {chapter}{\numberline {3}Resultado de la investigaci\'on}{33}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Descripci\'on y preparaci\'on del conjunto de datos}{33}{section.3.1}%
+\contentsline {subsection}{\numberline {2.7.10}Consideraciones \'eticas}{31}{subsection.2.7.10}%
+\contentsline {chapter}{\numberline {3}Resultado de la investigaci\'on}{32}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Descripci\'on y preparaci\'on del conjunto de datos}{32}{section.3.1}%
 \contentsline {section}{\numberline {3.2}An\'alisis espacial: mapas de calor}{33}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Modelo predictivo espacio-temporal}{34}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Arquitectura de referencia del sistema}{34}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Validaci\'on cualitativa con usuarios potenciales}{34}{section.3.5}%
-\contentsline {section}{\numberline {3.6}Discusi\'on de resultados}{34}{section.3.6}%
-\contentsline {chapter}{\numberline {4}Conclusiones y recomendaciones}{35}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Conclusiones}{35}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Conclusiones respecto al objetivo general}{35}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Conclusiones respecto a los objetivos espec\'ificos}{35}{subsection.4.1.2}%
-\contentsline {section}{\numberline {4.2}Recomendaciones}{36}{section.4.2}%
-\contentsline {chapter}{Referencias bibliogr\'aficas}{37}{Item.20}%
-\contentsline {chapter}{Anexos}{40}{chapter*.12}%
+\contentsline {section}{\numberline {3.4}Arquitectura de referencia del sistema}{35}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Validaci\'on cualitativa con usuarios potenciales}{35}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Discusi\'on de resultados}{35}{section.3.6}%
+\contentsline {chapter}{\numberline {4}Conclusiones y recomendaciones}{37}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Conclusiones}{37}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Conclusiones respecto al objetivo general}{37}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Conclusiones respecto a los objetivos espec\'ificos}{37}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}Recomendaciones}{38}{section.4.2}%
+\contentsline {chapter}{Referencias bibliogr\'aficas}{40}{Item.20}%
+\contentsline {chapter}{Anexos}{43}{chapter*.14}%

@@ -42,9 +42,6 @@
 \fancyhead[R]{\small\thepage}
 \renewcommand{\headrulewidth}{0pt}
 
-% Caja de nota editorial (para guiar al estudiante en las partes que debe completar con datos propios)
-}
-
 \title{Modelo de anal\'itica predictiva espacio-temporal para patrullajes preventivos en Lima Metropolitana}
 \author{}
 \date{}
@@ -87,7 +84,7 @@
 \noindent Yo, C\'esar Jes\'us Dose Preciado Calder\'on, identificado con DNI N.\textdegree{} 60770855, autor del presente trabajo de investigación, declaro bajo juramento que:
 
 \begin{enumerate}[label=\alph*)]
-    \item Soy el autor del documento acad\'emico titulado ``Modelo de analítica predictiva espacio-temporal sobre datos abiertos de criminalidad y siniestralidad vial, como apoyo a la planificaci\'on de patrullajes preventivos en Lima Metropolitana''.
+    \item Soy el autor del documento acad\'emico titulado ``Modelo de anal\'itica predictiva espacio-temporal para patrullajes preventivos en Lima Metropolitana''.
     \item El trabajo de investigaci\'on es original y no ha sido difundido en ning\'un medio acad\'emico; por lo tanto, sus resultados son veraces y no es copia de ning\'un otro.
     \item El trabajo incluye citas a otros autores y referencias bibliogr\'aficas verificables, cumpliendo con las pautas acad\'emicas y las normas de citado internacional (APA).
     \item El trabajo se ha elaborado con respeto absoluto a la propiedad intelectual de terceros.
@@ -95,7 +92,7 @@
 \end{enumerate}
 
 \vspace{1cm}
-\noindent Fecha: [dd/mm/aaaa]
+\noindent Fecha: 05 de septiembre de 2026
 
 \vspace{1.5cm}
 \noindent Firma del autor
@@ -201,7 +198,7 @@ El documento se organiza de la siguiente manera: el Cap\'itulo I presenta la inf
 \chapter{Informaci\'on general}
 
 \section{T\'itulo del proyecto}
-Modelo de analítica predictiva espacio-temporal sobre datos abiertos de criminalidad y siniestralidad vial, como apoyo a la planificaci\'on de patrullajes preventivos en Lima Metropolitana.
+Modelo de anal\'itica predictiva espacio-temporal para patrullajes preventivos en Lima Metropolitana.
 
 \section{\'Area estrat\'egica de desarrollo prioritario}
 El presente proyecto se ubica en el \'ambito de las Tecnolog\'ias de la Informaci\'on y la Comunicaci\'on (TIC) aplicadas a la gesti\'on de la seguridad ciudadana y la seguridad vial, espec\'ificamente en el campo de los Sistemas de Informaci\'on Geogr\'afica (SIG) y la ciencia de datos aplicada (analítica predictiva y aprendizaje autom\'atico). Esta \'area es priorizada de manera expl\'icita por la Pol\'itica Nacional de Transformaci\'on Digital y por la Pol\'itica Nacional Multisectorial de Seguridad Ciudadana al 2030, que promueven el uso de tecnolog\'ias emergentes para el fortalecimiento de la seguridad y el bienestar ciudadano \citep{talla2025geolocalizacion}.
@@ -253,7 +250,7 @@ En consecuencia, se identifica la necesidad de un modelo de analítica predictiv
 \section{Justificaci\'on}
 
 \subsection{Justificaci\'on te\'orica}
-La presente investigaci\'on se sustenta en el cuerpo te\'orico de la criminolog\'ia ambiental y del an\'alisis espacial del delito, que sostiene que el comportamiento delictivo no se distribuye de manera aleatoria en el territorio, sino que se concentra en function de oportunidades, rutinas y caracter\'isticas del entorno construido \citep{eck2005mapping}. Bajo este marco, t\'ecnicas como la estimaci\'on de densidad de kernel (KDE) han demostrado utilidad emp\'irica para predecir patrones espaciales futuros de criminalidad a partir de la concentraci\'on hist\'orica de eventos \citep{chainey2008kde}. De manera complementaria, la literatura sobre \textit{predictive policing} ha explorado modelos de procesos puntuales autoexcitados, en los que la ocurrencia de un delito incrementa temporalmente la probabilidad de delitos similares en su vecindad espacial y temporal \citep{mohler2011selfexciting}, as\'i como marcos de referencia m\'as amplios sobre el rol de la predicci\'on del delito en las operaciones policiales \citep{perry2013predictive}. Esta investigaci\'on traslada dichos marcos conceptuales, ampliamente aplicados en contextos internacionales, al an\'alisis conjunto e in\'edito de criminalidad y siniestralidad vial con datos abiertos peruanos.
+La presente investigaci\'on se sustenta en el cuerpo te\'orico de la criminolog\'ia ambiental y del an\'alisis espacial del delito, que sostiene que el comportamiento delictivo no se distribuye de manera aleatoria en el territorio, sino que se concentra en funci\'on de oportunidades, rutinas y caracter\'isticas del entorno construido \citep{eck2005mapping}. Bajo este marco, t\'ecnicas como la estimaci\'on de densidad de kernel (KDE) han demostrado utilidad emp\'irica para predecir patrones espaciales futuros de criminalidad a partir de la concentraci\'on hist\'orica de eventos \citep{chainey2008kde}. De manera complementaria, la literatura sobre \textit{predictive policing} ha explorado modelos de procesos puntuales autoexcitados, en los que la ocurrencia de un delito incrementa temporalmente la probabilidad de delitos similares en su vecindad espacial y temporal \citep{mohler2011selfexciting}, as\'i como marcos de referencia m\'as amplios sobre el rol de la predicci\'on del delito en las operaciones policiales \citep{perry2013predictive}. Esta investigaci\'on traslada dichos marcos conceptuales, ampliamente aplicados en contextos internacionales, al an\'alisis conjunto e in\'edito de criminalidad y siniestralidad vial con datos abiertos peruanos.
 
 \subsection{Justificaci\'on metodol\'ogica}
 Se opt\'o por un enfoque cuantitativo y aplicado, apoyado en la metodolog\'ia CRISP-DM \citep{crispdm2000}, ampliamente validada en la industria, para estructurar el ciclo de vida del componente anal\'itico-predictivo (comprensi\'on del negocio, comprensi\'on y preparaci\'on de los datos, modelado, evaluaci\'on y despliegue). Esta metodolog\'ia resulta especialmente adecuada para un proyecto de alcance acotado como una tesina t\'ecnica, porque garantiza el rigor en el tratamiento estad\'istico y geoespacial de los datos y permite validar el modelo mediante simulaci\'on sobre datos hist\'oricos (validaci\'on cruzada temporal o \textit{backtesting}), sin requerir el desarrollo de un sistema operativo; el desarrollo del software queda orientado por la arquitectura de referencia propuesta y planteado como l\'inea de trabajo futura.
@@ -549,38 +546,5 @@ El proyecto emplear\'a exclusivamente datos abiertos, agregados y despersonaliza
 % =========================================================
 \input{cap5_anexos}
 \newpage
-Con base en la literatura revisada y en el dise\~no propuesto, se plantean las siguientes recomendaciones generales, a complementar con las que se deriven de los resultados espec\'ificos obtenidos:
-
-\begin{enumerate}
-    \item \textbf{Fortalecer la calidad y apertura de los datos oficiales.} Se recomienda a las entidades responsables (INEI, MTC, PNP, municipalidades) avanzar hacia la publicaci\'on de datos de criminalidad y siniestralidad vial georreferenciados a nivel de coordenadas puntuales o de cuadrante, con actualizaci\'on peri\'odica, lo cual mejorar\'ia sustancialmente la precisi\'on de este tipo de sistemas.
-    \item \textbf{Desarrollar el sistema conforme a la arquitectura de referencia.} Se recomienda como l\'inea de trabajo futura la implementaci\'on del software (SIG) descrito en la arquitectura de referencia, as\'i como su validaci\'on operativa en una comisar\'ia o municipalidad, contrastando las recomendaciones generadas por el modelo con el criterio experto del personal de patrullaje.
-    \item \textbf{Incorporar retroalimentaci\'on continua.} Se recomienda dise\~nar un mecanismo de actualizaci\'on peri\'odica del modelo predictivo con nuevos datos, dado que los patrones delictivos y de siniestralidad vial cambian en el tiempo.
-    \item \textbf{Establecer salvaguardas \'eticas institucionales.} Se recomienda que cualquier adopci\'on institucional del sistema est\'e acompa\~nada de lineamientos expl\'icitos que limiten su uso al nivel agregado espacio-temporal, evitando cualquier forma de perfilamiento individual.
-    \item \textbf{Explorar la integraci\'on con el SIPCOP.} Se recomienda evaluar, en trabajos futuros, la viabilidad de integrar las recomendaciones del modelo con el Sistema Inform\'atico de Planificaci\'on y Control del Patrullaje Policial (SIPCOP) ya utilizado por la PNP, para facilitar su adopci\'on operativa sin duplicar plataformas.
-    \item \textbf{Evaluar aplicaciones en el sector asegurador.} Se recomienda explorar, junto con aseguradoras, el uso de los mapas de riesgo de siniestralidad por zona y franja horaria para la evaluaci\'on de riesgos, el dise\~no de campa\~nas de prevenci\'on y la tarificaci\'on de seguros vehiculares, considerando siempre el uso agregado y despersonalizado de los datos.
-\end{enumerate}
-
-\newpage
-
-% =========================================================
-% REFERENCIAS BIBLIOGR\'AFICAS
-% =========================================================
-\addcontentsline{toc}{chapter}{Referencias bibliogr\'aficas}
-\bibliography{referencias}
-
-\newpage
-
-% =========================================================
-% ANEXOS
-% =========================================================
-\appendix
-\addcontentsline{toc}{chapter}{Anexos}
-\chapter*{Anexos}
-
-\section*{Anexo 1: Diccionario de datos (a completar)}
-
-\section*{Anexo 2: Especificaci\'on de la arquitectura de referencia (a completar)}
-
-\section*{Anexo 3: C\'odigo fuente del an\'alisis o repositorio (a completar)}
 
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.9.5)  5 SEP 2026 13:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.9.5)  5 SEP 2026 15:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -580,7 +580,7 @@ LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count345
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 36.
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 54.
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 49.
  (/Users/cesar/Library/TinyTeX/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) (/Users/cesar/Library/TinyTeX/texmf-dist/tex/latex/l3kernel/l3backend-pdftex.def
@@ -594,26 +594,26 @@ Package babel Info: 'spanish' activates 'spanish' shorthands.
 )
 \openout1 = `tesina-sig-criminalidad-patrullaje.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Info: Redefining \. on input line 54.
-LaTeX Info: Redefining \% on input line 54.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Info: Redefining \. on input line 49.
+LaTeX Info: Redefining \% on input line 49.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -661,24 +661,23 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 54.
+Package hyperref Info: Link coloring ON on input line 49.
 (./tesina-sig-criminalidad-patrullaje.out) (./tesina-sig-criminalidad-patrullaje.out)
 \@outlinefile=\write4
 \openout4 = `tesina-sig-criminalidad-patrullaje.out'.
 
 Package babel Info: Main language set to 'spanish'.
- [1
-
-{/Users/cesar/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/Users/cesar/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 87.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 69.
  (/Users/cesar/Library/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
+) [1
+
+{/Users/cesar/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/Users/cesar/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/Users/cesar/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.103 \newpage
-               [1{/Users/cesar/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}] [2] (./tesina-sig-criminalidad-patrullaje.toc
+l.100 \newpage
+               [1] [2] (./tesina-sig-criminalidad-patrullaje.toc
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 6.
@@ -758,10 +757,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [10] [11
 
 ]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 197.
- (/Users/cesar/Library/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -835,7 +830,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [21]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 314.
+(Font)              <5> on input line 303.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -845,6 +840,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [22{/Users/cesar/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 348.
+ (/Users/cesar/Library/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -885,6 +884,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [27]
+Underfull \hbox (badness 2189) in paragraph at lines 423--423
+|[]\T1/lmr/bx/n/14.4 Metodología pa-ra el com-po-nen-te analítico-predictivo
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -893,10 +896,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [28]
-Underfull \hbox (badness 2189) in paragraph at lines 442--442
-|[]\T1/lmr/bx/n/14.4 Metodología pa-ra el com-po-nen-te analítico-predictivo
- []
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -920,17 +919,39 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[31]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[32]
+[31] (./cap3.tex
 Cap\'{\i }tulo 3.
-[33
+
+Underfull \hbox (badness 3884) in paragraph at lines 18--18
+[]|\T1/lmr/m/n/12 Registros fi-
+ []
+
+
+Underfull \hbox (badness 2799) in paragraph at lines 18--19
+[]|\T1/lmr/m/n/12 Unidad geo-
+ []
+
+
+Underfull \hbox (badness 4291) in paragraph at lines 20--21
+[]|\T1/lmr/m/n/12 Comisaría /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 21--21
+[]|\T1/lmr/m/n/12 MTC (Ob-ser-va-to-rio
+ []
+
+
+Underfull \hbox (badness 3449) in paragraph at lines 21--21
+[]|\T1/lmr/m/n/12 Siniestros de
+ []
+
+
+Overfull \hbox (20.4501pt too wide) in paragraph at lines 16--25
+ [][] 
+ []
+
+[32
 
 ]
 
@@ -940,11 +961,43 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[34]
+[33]
+Overfull \hbox (223.04352pt too wide) in paragraph at lines 44--53
+ [][] 
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[34{/Users/cesar/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}])
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[35]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[36] (./cap5_anexos.tex
 Cap\'{\i }tulo 4.
-[35
+[37
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 20--21
+[]\T1/lmr/m/n/12 La ar-qui-tec-tu-ra de re-fe-ren-cia
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -952,7 +1005,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[36] (./tesina-sig-criminalidad-patrullaje.bbl
+[38]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[39] (./tesina-sig-criminalidad-patrullaje.bbl
 Underfull \hbox (badness 5105) in paragraph at lines 4--8
 []\T1/lmr/m/n/12 Banco In-ter-ame-ri-cano de De-sa-rro-llo [BID] (2020).  Una bue-na prác-ti-ca de
  []
@@ -972,7 +1033,7 @@ Underfull \hbox (badness 1400) in paragraph at lines 36--40
 \T1/lmr/m/n/12 são pau-lo, bra-sil.  Pre-sen-ta-ción, Ban-co de Des-en-vol-vi-men-to da Amé-ri-ca La-ti-
  []
 
-[37
+[40
 
 ]
 
@@ -982,7 +1043,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[38])
+[41])
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -990,9 +1051,48 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[39] [40
+[42]
+Underfull \hbox (badness 2401) in paragraph at lines 67--68
+[]|\T1/lmr/m/n/12 Latitud del even-to (cuan-do
+ []
 
-] (./tesina-sig-criminalidad-patrullaje.aux
+
+Underfull \hbox (badness 7740) in paragraph at lines 69--70
+[]|\T1/lmr/m/n/12 Distrito de ocu-rren-cia del
+ []
+
+
+Overfull \hbox (7.85411pt too wide) in paragraph at lines 72--72
+[]|\T1/lmr/m/n/12 texto/numérico| 
+ []
+
+
+Overfull \hbox (8.5072pt too wide) in paragraph at lines 77--77
+[]|\T1/lmr/m/n/12 densidad_pob_celda| 
+ []
+
+[43
+
+]
+Overfull \vbox (68.5611pt too high) has occurred while \output is active []
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[44])
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[45] (./tesina-sig-criminalidad-patrullaje.aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 )
@@ -1000,26 +1100,22 @@ LaTeX Info: Redefining \% on input line 8.
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-08-10>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `tesina-sig-criminalidad-patrullaje.out' has not changed.
-(rerunfilecheck)             Checksum: 198D9041811AAF54CB5E994DA84F8833;10031.
+(rerunfilecheck)             Checksum: 78698A414C56973D47EB483D17431588;10031.
  ) 
 Here is how much of TeX's memory you used:
- 35501 strings out of 469071
- 829758 string characters out of 5457552
- 1381302 words of memory out of 5000000
- 63913 multiletter control sequences out of 15000+600000
- 700471 words of font info for 75 fonts, out of 8000000 for 9000
+ 35526 strings out of 469071
+ 830121 string characters out of 5457552
+ 1381685 words of memory out of 5000000
+ 63925 multiletter control sequences out of 15000+600000
+ 696264 words of font info for 74 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  92i,12n,104p,1699b,2115s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</Users/cesar/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></Users/cesar/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></Users/cesar/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></Users/cesar/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></Users/cesar/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb></Users/cesar/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb></Users/cesar/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb></Users/cesar/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb></Users/cesar/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri8.pfb></Users/cesar/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></Users/cesar/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></Users/cesar/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on tesina-sig-criminalidad-patrullaje.pdf (41 pages, 369452 bytes).
+</Users/cesar/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></Users/cesar/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></Users/cesar/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></Users/cesar/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></Users/cesar/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb></Users/cesar/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb></Users/cesar/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb></Users/cesar/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri8.pfb></Users/cesar/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></Users/cesar/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></Users/cesar/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
+Output written on tesina-sig-criminalidad-patrullaje.pdf (46 pages, 343981 bytes).
 PDF statistics:
- 745 PDF objects out of 1000 (max. 8388607)
- 668 compressed objects within 7 object streams
- 137 named destinations out of 1000 (max. 500000)
+ 819 PDF objects out of 1000 (max. 8388607)
+ 737 compressed objects within 8 object streams
+ 145 named destinations out of 1000 (max. 500000)
  405 words of extra memory for PDF output out of 10000 (max. 10000000)
 

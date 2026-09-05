@@ -27,11 +27,11 @@ Con base en la literatura revisada y en los resultados obtenidos, se plantean la
 
 \begin{enumerate}
     \item \textbf{Fortalecer la calidad y apertura de los datos oficiales.} Se recomienda a las entidades responsables (INEI, MTC, PNP, municipalidades) avanzar hacia la publicaci\'on de datos de criminalidad y siniestralidad vial georreferenciados a nivel de coordenadas puntuales o de cuadrante, con actualizaci\'on peri\'odica, lo cual mejorar\'ia sustancialmente la precisi\'on de este tipo de sistemas.
-    \item \textbf{Desarrollar el sistema conforme a la arquitectura de referencia.} Se recomienda como l\'inea de trabajo futura la implementaci\'on del software (SIG) descrito en la arquitectura de referencia, as\'i como su validaci\'on operativa en una comisaria o municipalidad, contrastando las recomendaciones generadas por el modelo con el criterio experto del personal de patrullaje.
+    \item \textbf{Desarrollar el sistema conforme a la arquitectura de referencia.} Se recomienda como l\'inea de trabajo futura la implementaci\'on del software (SIG) descrito en la arquitectura de referencia, as\'i como su validaci\'on operativa en una comisar\'ia o municipalidad, contrastando las recomendaciones generadas por el modelo con el criterio experto del personal de patrullaje.
     \item \textbf{Incorporar retroalimentaci\'on continua.} Se recomienda dise\~nar un mecanismo de actualizaci\'on peri\'odica del modelo predictivo con nuevos datos, dado que los patrones delictivos y de siniestralidad vial cambian en el tiempo.
     \item \textbf{Establecer salvaguardas \'eticas institucionales.} Se recomienda que cualquier adopci\'on institucional del sistema est\'e acompa\~nada de lineamientos expl\'icitos que limiten su uso al nivel agregado espacio-temporal, evitando cualquier forma de perfilamiento individual, en l\'inea con las consideraciones \'eticas discutidas en el Cap\'itulo II \citep{perry2013predictive}.
     \item \textbf{Explorar la integraci\'on con el SIPCOP.} Se recomienda evaluar, en trabajos futuros, la viabilidad de integrar las recomendaciones del modelo con el Sistema Inform\'atico de Planificaci\'on y Control del Patrullaje Policial (SIPCOP) ya utilizado por la PNP, para facilitar su adopci\'on operativa sin duplicar plataformas.
-    \item \textbf{Evaluar aplicaciones en el sector asegurador.} Se recomienda explorar, junto con aseguradoras, el uso de los mapas de riesgo de siniestralidad por zona y franja horaria para la evaluaci\'on de riesgos, el dise\~no de campanas de prevenci\'on y la tarificaci\'on de seguros vehiculares, considerando siempre el uso agregado y despersonalizado de los datos.
+    \item \textbf{Evaluar aplicaciones en el sector asegurador.} Se recomienda explorar, junto con aseguradoras, el uso de los mapas de riesgo de siniestralidad por zona y franja horaria para la evaluaci\'on de riesgos, el dise\~no de campa\~nas de prevenci\'on y la tarificaci\'on de seguros vehiculares, considerando siempre el uso agregado y despersonalizado de los datos.
 \end{enumerate}
 
 \newpage
@@ -67,7 +67,7 @@ fecha\_hora & fecha/hora & Fecha y hora de registro del evento. \\
 lat\_coord & num\'erico & Latitud del evento (cuando disponible). \\
 lon\_coord & num\'erico & Longitud del evento (cuando disponible). \\
 distrito & texto & Distrito de ocurrencia del evento. \\
-comisaria & texto & Comisaria o jurisdicci\'on asociada (cuando disponible). \\
+comisar\'ia & texto & Comisar\'ia o jurisdicci\'on asociada (cuando disponible). \\
 tipo\_evento & texto & Tipo de delito o de siniestro de tr\'ansito. \\
 severidad & texto/num\'erico & Grado de gravedad del siniestro (cuando disponible). \\
 tipo\_via & texto & Tipo de v\'ia donde ocurri\'o el evento (cuando disponible). \\
@@ -89,7 +89,7 @@ La arquitectura de referencia propuesta consta de tres capas:
     \item \textbf{Capa de presentaci\'on.} Una aplicaci\'on web (Flask o FastAPI en el backend, Leaflet en el frontend) que expone un mapa interactivo con los mapas de calor y las recomendaciones de sectores y horarios de patrullaje. Se contempla, adicionalmente, la posibilidad de usar QGIS \citep{qgis2024} como herramienta de escritorio para el an\'alisis exploratorio y los mapas est\'aticos durante el desarrollo.
 \end{itemize}
 
-Las decisiones de dise\~no Adoptadas (c\'odigo abierto, tres capas, modelo de datos espacial basado en PostGIS) responden a los criterios de baja costo, replicabilidad y facilitad de adopci\'on por entidades p\'ublicas y aseguradoras con recursos limitados.
+Las decisiones de dise\~no adoptadas (c\'odigo abierto, tres capas, modelo de datos espacial basado en PostGIS) responden a los criterios de baja costo, replicabilidad y facilidad de adopci\'on por entidades p\'ublicas y aseguradoras con recursos limitados.
 
 \section*{Anexo 3: C\'odigo fuente del an\'alisis y repositorio}
 
