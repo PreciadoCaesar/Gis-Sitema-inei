@@ -1,0 +1,38 @@
+name: Build PDF
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install TeX Live (minimal)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-base texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-publishers texlive-bibtex-extra latexmk
+
+      - name: Compile PDF
+        run: |
+          pdflatex -interaction=nonstopmode tesina-sig-criminalidad-patrullaje.tex
+          bibtex tesina-sig-criminalidad-patrullaje.aux
+          pdflatex -interaction=nonstopmode tesina-sig-criminalidad-patrullaje.tex
+          pdflatex -interaction=nonstopmode tesina-sig-criminalidad-patrullaje.tex
+          mv tesina-sig-criminalidad-patrullaje.pdf tesina-sig-criminalidad-patrullaje.pdf
+
+      - name: Commit PDF
+        run: |
+          git config user.name "César"
+          git config user.email "chess.costanza@gmail.com"
+          git add tesina-sig-criminalidad-patrullaje.pdf
+          if git diff --cached --quiet; then
+            echo "No changes to PDF"
+          else
+            git commit -m "Actualiza PDF compilado"
+            git push
+          fi
